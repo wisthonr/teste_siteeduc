@@ -1,0 +1,995 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Matemática Divertida! 🌟</title>
+<style>
+/* ===== FONTES E RESET ===== */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+  --azul:    #4A90E2;
+  --roxo:    #9B59B6;
+  --verde:   #27AE60;
+  --laranja: #F39C12;
+  --rosa:    #E91E8C;
+  --vermelho:#E74C3C;
+  --amarelo: #F1C40F;
+  --ceu:     #87CEEB;
+  --fundo:   #FFF9F0;
+  --texto:   #2C3E50;
+  --branco:  #FFFFFF;
+  --sombra:  rgba(0,0,0,0.15);
+}
+
+body {
+  font-family: 'Nunito', 'Arial Rounded MT Bold', Arial, sans-serif;
+  background: var(--fundo);
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: var(--texto);
+  position: relative;
+}
+
+/* ===== FUNDO ANIMADO COM BOLINHAS ===== */
+.bg-bubbles {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.12;
+  animation: floatUp linear infinite;
+}
+
+.bubble:nth-child(1)  { width:60px;  height:60px;  background:var(--azul);    left:5%;   animation-duration:12s; animation-delay:0s;  }
+.bubble:nth-child(2)  { width:40px;  height:40px;  background:var(--rosa);    left:15%;  animation-duration:9s;  animation-delay:2s;  }
+.bubble:nth-child(3)  { width:80px;  height:80px;  background:var(--verde);   left:25%;  animation-duration:15s; animation-delay:1s;  }
+.bubble:nth-child(4)  { width:50px;  height:50px;  background:var(--laranja); left:40%;  animation-duration:11s; animation-delay:3s;  }
+.bubble:nth-child(5)  { width:35px;  height:35px;  background:var(--roxo);    left:55%;  animation-duration:13s; animation-delay:0.5s;}
+.bubble:nth-child(6)  { width:70px;  height:70px;  background:var(--amarelo); left:65%;  animation-duration:10s; animation-delay:4s;  }
+.bubble:nth-child(7)  { width:45px;  height:45px;  background:var(--azul);    left:75%;  animation-duration:8s;  animation-delay:1.5s;}
+.bubble:nth-child(8)  { width:55px;  height:55px;  background:var(--vermelho);left:85%;  animation-duration:14s; animation-delay:2.5s;}
+.bubble:nth-child(9)  { width:30px;  height:30px;  background:var(--verde);   left:92%;  animation-duration:16s; animation-delay:0s;  }
+.bubble:nth-child(10) { width:65px;  height:65px;  background:var(--rosa);    left:48%;  animation-duration:12s; animation-delay:5s;  }
+
+@keyframes floatUp {
+  0%   { transform: translateY(110vh) scale(0.8); opacity:0.05; }
+  50%  { opacity: 0.15; }
+  100% { transform: translateY(-10vh) scale(1.1); opacity:0.05; }
+}
+
+/* ===== CONTAINER PRINCIPAL ===== */
+#app {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+}
+
+/* ===== TELA (genérica) ===== */
+.tela {
+  display: none;
+  width: 100%;
+  max-width: 700px;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  animation: fadeIn 0.4s ease;
+}
+
+.tela.ativa {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from { opacity:0; transform: translateY(20px); }
+  to   { opacity:1; transform: translateY(0);    }
+}
+
+/* ===== TELA INICIAL ===== */
+.logo-titulo {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.logo-emoji {
+  font-size: 72px;
+  display: block;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0);    }
+  50%       { transform: translateY(-12px); }
+}
+
+.titulo-principal {
+  font-size: 2.6rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--azul), var(--roxo), var(--rosa));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+  margin-top: 8px;
+}
+
+.subtitulo {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--laranja);
+  margin-top: 4px;
+}
+
+/* ===== GRADE DE ATIVIDADES ===== */
+.grade-atividades {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  width: 100%;
+}
+
+.card-atividade {
+  background: var(--branco);
+  border-radius: 24px;
+  padding: 20px 14px;
+  text-align: center;
+  cursor: pointer;
+  border: 3px solid transparent;
+  box-shadow: 0 6px 20px var(--sombra);
+  transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.card-atividade:active {
+  transform: scale(0.95);
+}
+
+.card-atividade:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px var(--sombra);
+}
+
+.card-atividade .emoji-card {
+  font-size: 52px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.card-atividade .nome-atividade {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--texto);
+  line-height: 1.25;
+}
+
+/* Cores dos cards */
+.card-atividade[data-tema="numeros"]    { border-color: var(--azul);    background: linear-gradient(145deg,#EBF5FF,#fff); }
+.card-atividade[data-tema="ordem"]      { border-color: var(--verde);   background: linear-gradient(145deg,#E9F7EF,#fff); }
+.card-atividade[data-tema="dezenas"]    { border-color: var(--laranja); background: linear-gradient(145deg,#FEF9E7,#fff); }
+.card-atividade[data-tema="adicao"]     { border-color: var(--rosa);    background: linear-gradient(145deg,#FDE2F3,#fff); }
+.card-atividade[data-tema="subtracao"]  { border-color: var(--vermelho);background: linear-gradient(145deg,#FDEDEC,#fff); }
+.card-atividade[data-tema="problemas"]  { border-color: var(--roxo);    background: linear-gradient(145deg,#F4ECF7,#fff); }
+.card-atividade[data-tema="sequencias"] { border-color: var(--azul);    background: linear-gradient(145deg,#EBF5FF,#fff); }
+.card-atividade[data-tema="tabelas"]    { border-color: var(--verde);   background: linear-gradient(145deg,#E9F7EF,#fff); }
+
+/* ===== CABEÇALHO DO QUIZ ===== */
+.cabecalho-quiz {
+  width: 100%;
+  background: var(--branco);
+  border-radius: 20px;
+  padding: 14px 20px;
+  box-shadow: 0 4px 16px var(--sombra);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tema-atual {
+  font-size: 1.3rem;
+  font-weight: 900;
+}
+
+.progresso-texto {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #666;
+}
+
+/* Estrelas de pontos */
+.estrelas-display {
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+}
+
+/* Barra de progresso */
+.barra-progresso-wrap {
+  width: 100%;
+  background: #E0E0E0;
+  border-radius: 10px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.barra-progresso {
+  height: 100%;
+  background: linear-gradient(90deg, var(--verde), var(--amarelo));
+  border-radius: 10px;
+  transition: width 0.4s ease;
+}
+
+/* ===== CARD DA PERGUNTA ===== */
+.card-pergunta {
+  width: 100%;
+  background: var(--branco);
+  border-radius: 24px;
+  padding: 28px 24px;
+  box-shadow: 0 6px 24px var(--sombra);
+  text-align: center;
+}
+
+.emoji-tema {
+  font-size: 48px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.texto-pergunta {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--texto);
+  line-height: 1.4;
+  min-height: 60px;
+}
+
+/* Tabela especial para o tema tabelas */
+.tabela-quiz {
+  margin: 14px auto;
+  border-collapse: collapse;
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px var(--sombra);
+}
+
+.tabela-quiz th {
+  background: var(--verde);
+  color: #fff;
+  padding: 10px 18px;
+  font-size: 1rem;
+}
+
+.tabela-quiz td {
+  background: #F0FFF4;
+  padding: 10px 18px;
+  border: 2px solid #C8E6C9;
+  color: var(--texto);
+  text-align: center;
+}
+
+/* ===== OPÇÕES DE RESPOSTA ===== */
+.grid-opcoes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  width: 100%;
+}
+
+.btn-opcao {
+  background: var(--branco);
+  border: 3px solid #D0D0D0;
+  border-radius: 20px;
+  padding: 18px 12px;
+  font-family: inherit;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--texto);
+  cursor: pointer;
+  box-shadow: 0 4px 14px var(--sombra);
+  transition: transform 0.15s, border-color 0.15s, background 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+  min-height: 70px;
+  line-height: 1.25;
+}
+
+.btn-opcao:active {
+  transform: scale(0.94);
+}
+
+.btn-opcao.certa {
+  background: #E8F8F5;
+  border-color: var(--verde);
+  color: var(--verde);
+  animation: pulseCerto 0.4s ease;
+}
+
+.btn-opcao.errada {
+  background: #FDEDEC;
+  border-color: var(--vermelho);
+  color: var(--vermelho);
+  animation: shake 0.4s ease;
+}
+
+@keyframes pulseCerto {
+  0%   { transform: scale(1);    }
+  50%  { transform: scale(1.06); }
+  100% { transform: scale(1);    }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0);   }
+  25%       { transform: translateX(-8px);}
+  75%       { transform: translateX(8px); }
+}
+
+/* ===== FEEDBACK ===== */
+.feedback-box {
+  width: 100%;
+  border-radius: 20px;
+  padding: 18px 24px;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 900;
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+
+.feedback-box.certo  { background: #D5F5E3; color: #1E8449; border: 3px solid var(--verde);    }
+.feedback-box.errado { background: #FADBD8; color: #922B21; border: 3px solid var(--vermelho); }
+
+/* ===== BOTÕES DE AÇÃO ===== */
+.area-botoes {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.btn-acao {
+  flex: 1;
+  min-width: 130px;
+  padding: 18px 16px;
+  border: none;
+  border-radius: 20px;
+  font-family: inherit;
+  font-size: 1.1rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 5px 16px var(--sombra);
+  transition: transform 0.15s, box-shadow 0.15s;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.btn-acao:active { transform: scale(0.94); }
+
+.btn-proximo {
+  background: linear-gradient(135deg, var(--verde), #1ABC9C);
+  color: var(--branco);
+}
+
+.btn-menu {
+  background: linear-gradient(135deg, #95A5A6, #7F8C8D);
+  color: var(--branco);
+}
+
+.btn-jogar-de-novo {
+  background: linear-gradient(135deg, var(--azul), var(--roxo));
+  color: var(--branco);
+}
+
+/* ===== TELA FINAL ===== */
+.tela-final {
+  text-align: center;
+}
+
+.trofeu-emoji {
+  font-size: 96px;
+  display: block;
+  animation: bounce 1.2s infinite;
+}
+
+.titulo-final {
+  font-size: 2.2rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--laranja), var(--rosa));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pontuacao-final {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--roxo);
+}
+
+.estrelas-finais {
+  font-size: 3rem;
+  letter-spacing: 4px;
+  margin: 8px 0;
+}
+
+.card-resultado {
+  width: 100%;
+  background: var(--branco);
+  border-radius: 24px;
+  padding: 28px;
+  box-shadow: 0 6px 24px var(--sombra);
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 480px) {
+  .titulo-principal { font-size: 2rem; }
+  .grade-atividades { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .card-atividade   { padding: 14px 8px; }
+  .card-atividade .emoji-card { font-size: 40px; }
+  .card-atividade .nome-atividade { font-size: 0.9rem; }
+  .texto-pergunta   { font-size: 1.25rem; }
+  .btn-opcao        { font-size: 1.15rem; padding: 14px 8px; min-height: 60px; }
+  .feedback-box     { font-size: 1.2rem; }
+}
+
+/* ===== ESTRELINHA VOANDO (ANIMAÇÃO DE ACERTO) ===== */
+.estrela-voando {
+  position: fixed;
+  font-size: 2rem;
+  pointer-events: none;
+  z-index: 999;
+  animation: voarEstrela 1s ease forwards;
+}
+
+@keyframes voarEstrela {
+  0%   { opacity:1; transform: scale(1)   translateY(0); }
+  100% { opacity:0; transform: scale(2.5) translateY(-100px); }
+}
+</style>
+</head>
+<body>
+
+<!-- Bolinhas de fundo -->
+<div class="bg-bubbles" aria-hidden="true">
+  <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+  <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+  <div class="bubble"></div><div class="bubble"></div><div class="bubble"></div>
+  <div class="bubble"></div>
+</div>
+
+<div id="app">
+
+  <!-- ===================== TELA INICIAL ===================== -->
+  <div id="tela-inicio" class="tela ativa">
+    <div class="logo-titulo">
+      <span class="logo-emoji">🧮</span>
+      <h1 class="titulo-principal">Matemática<br>Divertida!</h1>
+      <p class="subtitulo">Escolha uma atividade ⬇️</p>
+    </div>
+
+    <div class="grade-atividades">
+      <div class="card-atividade" data-tema="numeros">
+        <span class="emoji-card">🔢</span>
+        <span class="nome-atividade">Números<br>até 99</span>
+      </div>
+      <div class="card-atividade" data-tema="ordem">
+        <span class="emoji-card">📶</span>
+        <span class="nome-atividade">Ordem<br>Crescente</span>
+      </div>
+      <div class="card-atividade" data-tema="dezenas">
+        <span class="emoji-card">🎲</span>
+        <span class="nome-atividade">Dezenas e<br>Unidades</span>
+      </div>
+      <div class="card-atividade" data-tema="adicao">
+        <span class="emoji-card">➕</span>
+        <span class="nome-atividade">Adição</span>
+      </div>
+      <div class="card-atividade" data-tema="subtracao">
+        <span class="emoji-card">➖</span>
+        <span class="nome-atividade">Subtração</span>
+      </div>
+      <div class="card-atividade" data-tema="problemas">
+        <span class="emoji-card">📖</span>
+        <span class="nome-atividade">Probleminhas</span>
+      </div>
+      <div class="card-atividade" data-tema="sequencias">
+        <span class="emoji-card">🔗</span>
+        <span class="nome-atividade">Sequências<br>Numéricas</span>
+      </div>
+      <div class="card-atividade" data-tema="tabelas">
+        <span class="emoji-card">📊</span>
+        <span class="nome-atividade">Tabelas</span>
+      </div>
+    </div>
+  </div><!-- fim tela-inicio -->
+
+
+  <!-- ===================== TELA DO QUIZ ===================== -->
+  <div id="tela-quiz" class="tela">
+
+    <!-- Cabeçalho -->
+    <div class="cabecalho-quiz">
+      <span id="quiz-tema-label" class="tema-atual">🔢 Números</span>
+      <span id="quiz-progresso" class="progresso-texto">Questão 1 de 5</span>
+      <span id="quiz-estrelas" class="estrelas-display">⭐⭐⭐⭐⭐</span>
+    </div>
+
+    <!-- Barra de progresso -->
+    <div class="barra-progresso-wrap" style="width:100%">
+      <div id="barra" class="barra-progresso" style="width:0%"></div>
+    </div>
+
+    <!-- Pergunta -->
+    <div class="card-pergunta">
+      <span id="quiz-emoji" class="emoji-tema">🔢</span>
+      <p id="quiz-texto" class="texto-pergunta">Carregando...</p>
+      <div id="tabela-container"></div>
+    </div>
+
+    <!-- Opções -->
+    <div class="grid-opcoes" id="grid-opcoes"></div>
+
+    <!-- Feedback -->
+    <div id="feedback-box" class="feedback-box"></div>
+
+    <!-- Botões de ação -->
+    <div class="area-botoes">
+      <button id="btn-menu-quiz" class="btn-acao btn-menu">🏠 Menu</button>
+      <button id="btn-proximo" class="btn-acao btn-proximo" style="display:none">Próxima ➡️</button>
+    </div>
+
+  </div><!-- fim tela-quiz -->
+
+
+  <!-- ===================== TELA FINAL ===================== -->
+  <div id="tela-final" class="tela">
+    <div class="card-resultado tela-final">
+      <span class="trofeu-emoji">🏆</span>
+      <h2 class="titulo-final">Parabéns!</h2>
+      <p style="font-size:1.2rem;font-weight:800;margin:8px 0">Você terminou!</p>
+      <div id="final-estrelas" class="estrelas-finais">⭐⭐⭐⭐⭐</div>
+      <p id="final-acertos" class="pontuacao-final">5 de 5 acertos!</p>
+      <p id="final-mensagem" style="font-size:1.1rem;font-weight:700;color:#7F8C8D;margin:12px 0">
+        Você é incrível! 🎉
+      </p>
+    </div>
+
+    <div class="area-botoes" style="max-width:700px;width:100%">
+      <button id="btn-jogar-de-novo" class="btn-acao btn-jogar-de-novo">🔄 Jogar de Novo</button>
+      <button id="btn-menu-final"    class="btn-acao btn-menu">🏠 Menu</button>
+    </div>
+  </div><!-- fim tela-final -->
+
+</div><!-- fim app -->
+
+
+<script>
+/* =====================================================
+   BANCO DE PERGUNTAS
+   Cada tema tem 5+ perguntas com 4 alternativas.
+   "certa" é o índice (0-3) da alternativa correta.
+===================================================== */
+var BANCO = {
+
+  numeros: {
+    nome: '🔢 Números até 99',
+    emoji: '🔢',
+    perguntas: [
+      { texto: 'Qual é o maior número?', opcoes: ['47', '89', '23', '61'], certa: 1 },
+      { texto: 'Qual é o menor número?', opcoes: ['55', '78', '12', '34'], certa: 2 },
+      { texto: 'Que número vem DEPOIS do 39?', opcoes: ['38', '40', '41', '37'], certa: 1 },
+      { texto: 'Que número vem ANTES do 70?', opcoes: ['71', '72', '69', '68'], certa: 2 },
+      { texto: 'Qual número está entre 44 e 46?', opcoes: ['43', '47', '45', '48'], certa: 2 },
+      { texto: 'Qual é o maior número?', opcoes: ['99', '90', '98', '91'], certa: 0 },
+    ]
+  },
+
+  ordem: {
+    nome: '📶 Ordem Crescente',
+    emoji: '📶',
+    perguntas: [
+      { texto: 'Qual é a ordem crescente?', opcoes: ['5, 8, 3, 1', '1, 3, 5, 8', '8, 5, 3, 1', '3, 1, 8, 5'], certa: 1 },
+      { texto: 'Qual é a ordem decrescente?', opcoes: ['10, 20, 30', '30, 20, 10', '20, 10, 30', '10, 30, 20'], certa: 1 },
+      { texto: 'Crescente: 15, __, 35, 45', opcoes: ['10', '20', '25', '40'], certa: 2 },
+      { texto: 'Qual sequência está em ordem crescente?', opcoes: ['7, 4, 9, 2', '2, 4, 7, 9', '9, 7, 4, 2', '4, 2, 9, 7'], certa: 1 },
+      { texto: 'Decrescente: 50, 40, __, 20', opcoes: ['45', '35', '30', '25'], certa: 2 },
+      { texto: 'Qual é o número do MEIO em ordem crescente: 62, 48, 75?', opcoes: ['48', '75', '62', '70'], certa: 2 },
+    ]
+  },
+
+  dezenas: {
+    nome: '🎲 Dezenas e Unidades',
+    emoji: '🎲',
+    perguntas: [
+      { texto: 'Quantas dezenas tem o número 35?', opcoes: ['5', '2', '3', '4'], certa: 2 },
+      { texto: 'Quantas unidades tem o número 47?', opcoes: ['4', '7', '11', '3'], certa: 1 },
+      { texto: '2 dezenas + 8 unidades = ?', opcoes: ['82', '28', '20', '18'], certa: 1 },
+      { texto: 'Quantas dezenas tem o número 60?', opcoes: ['0', '6', '60', '16'], certa: 1 },
+      { texto: 'O número 53 tem quantas unidades?', opcoes: ['5', '3', '8', '53'], certa: 1 },
+      { texto: '4 dezenas + 0 unidades = ?', opcoes: ['4', '14', '40', '44'], certa: 2 },
+    ]
+  },
+
+  adicao: {
+    nome: '➕ Adição',
+    emoji: '➕',
+    perguntas: [
+      { texto: '15 + 20 = ?', opcoes: ['25', '35', '30', '45'], certa: 1 },
+      { texto: '34 + 13 = ?', opcoes: ['47', '37', '57', '44'], certa: 0 },
+      { texto: '50 + 25 = ?', opcoes: ['65', '70', '75', '85'], certa: 2 },
+      { texto: '42 + 36 = ?', opcoes: ['70', '72', '78', '68'], certa: 2 },
+      { texto: '11 + 11 = ?', opcoes: ['21', '23', '22', '20'], certa: 2 },
+      { texto: '60 + 30 = ?', opcoes: ['80', '90', '70', '100'], certa: 1 },
+    ]
+  },
+
+  subtracao: {
+    nome: '➖ Subtração',
+    emoji: '➖',
+    perguntas: [
+      { texto: '30 - 10 = ?', opcoes: ['10', '25', '20', '15'], certa: 2 },
+      { texto: '45 - 20 = ?', opcoes: ['30', '25', '15', '35'], certa: 1 },
+      { texto: '78 - 30 = ?', opcoes: ['58', '48', '68', '38'], certa: 1 },
+      { texto: '50 - 25 = ?', opcoes: ['30', '15', '25', '20'], certa: 2 },
+      { texto: '99 - 9 = ?', opcoes: ['80', '90', '89', '91'], certa: 1 },
+      { texto: '60 - 40 = ?', opcoes: ['10', '30', '20', '15'], certa: 2 },
+    ]
+  },
+
+  problemas: {
+    nome: '📖 Probleminhas',
+    emoji: '📖',
+    perguntas: [
+      { texto: 'Ana tem 12 balas 🍬. Ganhou mais 8. Quantas tem agora?', opcoes: ['18', '20', '22', '16'], certa: 1 },
+      { texto: 'Pedro tinha 25 figurinhas 🖼️. Deu 10 para o amigo. Quantas ficaram?', opcoes: ['35', '10', '15', '20'], certa: 2 },
+      { texto: 'Na sala tem 30 alunos 👦👧. 15 foram ao recreio. Quantos ficaram?', opcoes: ['10', '20', '15', '25'], certa: 2 },
+      { texto: 'Carla leu 5 páginas hoje 📚 e 7 páginas ontem. Quantas no total?', opcoes: ['10', '11', '12', '13'], certa: 2 },
+      { texto: 'Há 40 pássaros na árvore 🐦. 15 voaram. Quantos ficaram?', opcoes: ['30', '15', '25', '20'], certa: 2 },
+      { texto: 'Tom tem 36 bolinhas 🔵. Ganhou 14 mais. Quantas tem agora?', opcoes: ['40', '46', '50', '56'], certa: 2 },
+    ]
+  },
+
+  sequencias: {
+    nome: '🔗 Sequências',
+    emoji: '🔗',
+    perguntas: [
+      { texto: 'Qual o próximo? 2, 4, 6, 8, __', opcoes: ['12', '10', '9', '11'], certa: 1 },
+      { texto: 'Qual o próximo? 5, 10, 15, 20, __', opcoes: ['22', '30', '25', '24'], certa: 2 },
+      { texto: 'Qual o próximo? 10, 20, 30, 40, __', opcoes: ['45', '42', '50', '60'], certa: 2 },
+      { texto: 'Qual falta? 3, 6, __, 12, 15', opcoes: ['7', '8', '9', '10'], certa: 2 },
+      { texto: 'Qual falta? 20, 18, 16, __, 12', opcoes: ['13', '15', '14', '11'], certa: 2 },
+      { texto: 'Qual o próximo? 1, 3, 5, 7, __', opcoes: ['8', '10', '9', '11'], certa: 2 },
+    ]
+  },
+
+  tabelas: {
+    nome: '📊 Tabelas',
+    emoji: '📊',
+    perguntas: [
+      {
+        texto: 'Quantos gatos tem a escola?',
+        tabela: { cabecalho: ['Animal','Quantidade'], linhas: [['Cachorro','12'],['Gato','8'],['Peixe','5']] },
+        opcoes: ['12', '5', '8', '15'], certa: 2
+      },
+      {
+        texto: 'Qual fruta tem MAIS?',
+        tabela: { cabecalho: ['Fruta','Quantidade'], linhas: [['Maçã 🍎','20'],['Banana 🍌','15'],['Uva 🍇','25']] },
+        opcoes: ['Maçã', 'Banana', 'Uva', 'Laranja'], certa: 2
+      },
+      {
+        texto: 'Quantos potes de laranja tem?',
+        tabela: { cabecalho: ['Suco','Potes'], linhas: [['Laranja','9'],['Maracujá','6'],['Abacaxi','4']] },
+        opcoes: ['6', '4', '9', '19'], certa: 2
+      },
+      {
+        texto: 'Quantos livros de História tem?',
+        tabela: { cabecalho: ['Matéria','Livros'], linhas: [['Português','10'],['Matemática','8'],['História','6']] },
+        opcoes: ['10', '8', '6', '4'], certa: 2
+      },
+      {
+        texto: 'Qual time marcou MENOS gols?',
+        tabela: { cabecalho: ['Time','Gols'], linhas: [['Leão','5'],['Tigre','3'],['Águia','7']] },
+        opcoes: ['Leão', 'Tigre', 'Águia', 'Puma'], certa: 1
+      },
+      {
+        texto: 'Qual dia vendeu MAIS picolés?',
+        tabela: { cabecalho: ['Dia','Picolés'], linhas: [['Sábado','30'],['Domingo','45'],['Segunda','20']] },
+        opcoes: ['Sábado', 'Segunda', 'Domingo', 'Terça'], certa: 2
+      },
+    ]
+  }
+
+};
+
+/* =====================================================
+   ESTADO DO JOGO
+===================================================== */
+var estado = {
+  temaAtual: null,
+  perguntas: [],
+  indice: 0,
+  acertos: 0,
+  respondeu: false
+};
+
+/* =====================================================
+   UTILITÁRIOS
+===================================================== */
+function embaralhar(arr) {
+  /* Embaralha array sem mutação */
+  var a = arr.slice();
+  for (var i = a.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = a[i]; a[i] = a[j]; a[j] = tmp;
+  }
+  return a;
+}
+
+function mostrarTela(id) {
+  var telas = document.querySelectorAll('.tela');
+  for (var i = 0; i < telas.length; i++) {
+    telas[i].classList.remove('ativa');
+  }
+  document.getElementById(id).classList.add('ativa');
+  window.scrollTo(0, 0);
+}
+
+function atualizarEstrelas(acertos, total) {
+  /* Converte acertos em estrelas */
+  var porcentagem = acertos / total;
+  var qtd = 0;
+  if (porcentagem >= 0.9) qtd = 5;
+  else if (porcentagem >= 0.7) qtd = 4;
+  else if (porcentagem >= 0.5) qtd = 3;
+  else if (porcentagem >= 0.3) qtd = 2;
+  else qtd = 1;
+  var str = '';
+  for (var i = 0; i < 5; i++) str += (i < qtd) ? '⭐' : '☆';
+  return str;
+}
+
+function criarEstrelinha(x, y) {
+  var el = document.createElement('div');
+  el.className = 'estrela-voando';
+  el.textContent = '⭐';
+  el.style.left = x + 'px';
+  el.style.top  = y + 'px';
+  document.body.appendChild(el);
+  setTimeout(function() { el.remove(); }, 1000);
+}
+
+/* =====================================================
+   LÓGICA DO QUIZ
+===================================================== */
+function iniciarTema(tema) {
+  estado.temaAtual = tema;
+  /* Pega as perguntas e embaralha (pega 5) */
+  estado.perguntas = embaralhar(BANCO[tema].perguntas).slice(0, 5);
+  estado.indice  = 0;
+  estado.acertos = 0;
+  mostrarTela('tela-quiz');
+  carregarPergunta();
+}
+
+function carregarPergunta() {
+  estado.respondeu = false;
+  var pergunta = estado.perguntas[estado.indice];
+  var total    = estado.perguntas.length;
+  var dados    = BANCO[estado.temaAtual];
+
+  /* Atualiza cabeçalho */
+  document.getElementById('quiz-tema-label').textContent = dados.nome;
+  document.getElementById('quiz-emoji').textContent = dados.emoji;
+  document.getElementById('quiz-progresso').textContent =
+    'Questão ' + (estado.indice + 1) + ' de ' + total;
+  document.getElementById('quiz-estrelas').textContent =
+    atualizarEstrelas(estado.acertos, total);
+
+  /* Barra de progresso */
+  var pct = (estado.indice / total) * 100;
+  document.getElementById('barra').style.width = pct + '%';
+
+  /* Texto da pergunta */
+  document.getElementById('quiz-texto').textContent = pergunta.texto;
+
+  /* Tabela (se houver) */
+  var tabelaContainer = document.getElementById('tabela-container');
+  tabelaContainer.innerHTML = '';
+  if (pergunta.tabela) {
+    var t = document.createElement('table');
+    t.className = 'tabela-quiz';
+    var thead = document.createElement('thead');
+    var trH   = document.createElement('tr');
+    pergunta.tabela.cabecalho.forEach(function(cab) {
+      var th = document.createElement('th');
+      th.textContent = cab;
+      trH.appendChild(th);
+    });
+    thead.appendChild(trH);
+    t.appendChild(thead);
+    var tbody = document.createElement('tbody');
+    pergunta.tabela.linhas.forEach(function(linha) {
+      var tr = document.createElement('tr');
+      linha.forEach(function(cel) {
+        var td = document.createElement('td');
+        td.textContent = cel;
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+    t.appendChild(tbody);
+    tabelaContainer.appendChild(t);
+  }
+
+  /* Opções */
+  var grid = document.getElementById('grid-opcoes');
+  grid.innerHTML = '';
+  pergunta.opcoes.forEach(function(opcao, idx) {
+    var btn = document.createElement('button');
+    btn.className = 'btn-opcao';
+    btn.textContent = opcao;
+    btn.dataset.idx = idx;
+    btn.addEventListener('click', function() {
+      responder(parseInt(this.dataset.idx), pergunta.certa);
+    });
+    grid.appendChild(btn);
+  });
+
+  /* Esconde feedback e botão próxima */
+  var fb = document.getElementById('feedback-box');
+  fb.style.display = 'none';
+  fb.className = 'feedback-box';
+  document.getElementById('btn-proximo').style.display = 'none';
+}
+
+function responder(escolhido, certa) {
+  if (estado.respondeu) return;
+  estado.respondeu = true;
+
+  var botoes = document.querySelectorAll('.btn-opcao');
+  var fb     = document.getElementById('feedback-box');
+  var btnProximo = document.getElementById('btn-proximo');
+  var acertou = (escolhido === certa);
+
+  /* Marca botões */
+  for (var i = 0; i < botoes.length; i++) {
+    botoes[i].style.pointerEvents = 'none';
+    if (parseInt(botoes[i].dataset.idx) === certa) {
+      botoes[i].classList.add('certa');
+    } else if (parseInt(botoes[i].dataset.idx) === escolhido && !acertou) {
+      botoes[i].classList.add('errada');
+    }
+  }
+
+  /* Feedback */
+  if (acertou) {
+    estado.acertos++;
+    fb.textContent = '🎉 Muito bem! Você acertou!';
+    fb.className = 'feedback-box certo';
+    /* Estrelinhas voadoras */
+    for (var s = 0; s < 4; s++) {
+      (function(delay) {
+        setTimeout(function() {
+          criarEstrelinha(
+            Math.random() * (window.innerWidth - 60) + 30,
+            Math.random() * (window.innerHeight * 0.5) + 100
+          );
+        }, delay);
+      })(s * 120);
+    }
+  } else {
+    fb.textContent = '😊 Quase! A resposta certa está em verde!';
+    fb.className = 'feedback-box errado';
+  }
+  fb.style.display = 'block';
+
+  /* Atualiza estrelas no cabeçalho */
+  document.getElementById('quiz-estrelas').textContent =
+    atualizarEstrelas(estado.acertos, estado.perguntas.length);
+
+  /* Mostra botão próxima */
+  btnProximo.style.display = 'block';
+  var isUltima = (estado.indice === estado.perguntas.length - 1);
+  btnProximo.textContent = isUltima ? 'Ver resultado 🏆' : 'Próxima ➡️';
+}
+
+function avancar() {
+  estado.indice++;
+  if (estado.indice >= estado.perguntas.length) {
+    mostrarResultado();
+  } else {
+    carregarPergunta();
+  }
+}
+
+function mostrarResultado() {
+  var total   = estado.perguntas.length;
+  var acertos = estado.acertos;
+  var pct     = acertos / total;
+  var estrelas = atualizarEstrelas(acertos, total);
+
+  document.getElementById('final-estrelas').textContent = estrelas;
+  document.getElementById('final-acertos').textContent  =
+    acertos + ' de ' + total + ' acertos!';
+
+  var mensagens = [
+    'Continue praticando! Você vai melhorar! 💪',
+    'Bom trabalho! Pratique mais! 😊',
+    'Muito bem! Você está indo bem! 🌟',
+    'Excelente! Você é incrível! 🎉',
+    'PERFEITO! Você é um gênio da matemática! 🧠✨'
+  ];
+  var idx = Math.min(Math.floor(pct * 5), 4);
+  document.getElementById('final-mensagem').textContent = mensagens[idx];
+
+  /* Barra 100% */
+  document.getElementById('barra').style.width = '100%';
+
+  mostrarTela('tela-final');
+}
+
+/* =====================================================
+   EVENTOS
+===================================================== */
+/* Cards do menu principal */
+var cards = document.querySelectorAll('.card-atividade');
+for (var c = 0; c < cards.length; c++) {
+  cards[c].addEventListener('click', function() {
+    var tema = this.dataset.tema;
+    iniciarTema(tema);
+  });
+}
+
+/* Botão próxima */
+document.getElementById('btn-proximo').addEventListener('click', function() {
+  avancar();
+});
+
+/* Botão menu (dentro do quiz) */
+document.getElementById('btn-menu-quiz').addEventListener('click', function() {
+  mostrarTela('tela-inicio');
+});
+
+/* Botão jogar de novo (tela final) */
+document.getElementById('btn-jogar-de-novo').addEventListener('click', function() {
+  iniciarTema(estado.temaAtual);
+});
+
+/* Botão menu (tela final) */
+document.getElementById('btn-menu-final').addEventListener('click', function() {
+  mostrarTela('tela-inicio');
+});
+
+/* =====================================================
+   PREVENIR ZOOM NO DUPLO-TOQUE (iPad/mobile)
+===================================================== */
+document.addEventListener('touchend', function(e) {
+  if (e.target.tagName === 'BUTTON' || e.target.closest('.card-atividade')) {
+    e.preventDefault();
+  }
+}, { passive: false });
+
+</script>
+</body>
+</html>
