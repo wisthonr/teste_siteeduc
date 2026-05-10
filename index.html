@@ -13,6 +13,7 @@
   margin: 0;
   padding: 0;
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 :root {
@@ -148,6 +149,7 @@ body {
 }
 
 .card-atividade {
+  cursor: pointer;
   background: var(--branco);
   border-radius: 24px;
   padding: 20px 14px;
@@ -158,6 +160,8 @@ body {
   transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
   user-select: none;
   -webkit-user-select: none;
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
 }
 
 .card-atividade:active {
@@ -311,6 +315,8 @@ body {
   transition: transform 0.15s, border-color 0.15s, background 0.15s;
   user-select: none;
   -webkit-user-select: none;
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
   min-height: 70px;
   line-height: 1.25;
 }
@@ -382,6 +388,8 @@ body {
   transition: transform 0.15s, box-shadow 0.15s;
   user-select: none;
   -webkit-user-select: none;
+  touch-action: manipulation;
+  -webkit-touch-callout: none;
 }
 
 .btn-acao:active { transform: scale(0.94); }
@@ -850,7 +858,7 @@ function carregarPergunta() {
     btn.className = 'btn-opcao';
     btn.textContent = opcao;
     btn.dataset.idx = idx;
-    btn.addEventListener('click', function() {
+    tocarEm(btn, function() {
       responder(parseInt(this.dataset.idx), pergunta.certa);
     });
     grid.appendChild(btn);
@@ -950,14 +958,18 @@ function mostrarResultado() {
 }
 
 /* =====================================================
-   EVENTOS
+   EVENTOS — compatível com iOS Safari / iPad
+   Usamos apenas 'click', que o Safari dispara
+   corretamente em elementos interativos (button, div
+   com cursor:pointer). Não usamos touchend para
+   evitar duplo disparo e conflitos com o Safari.
 ===================================================== */
+
 /* Cards do menu principal */
 var cards = document.querySelectorAll('.card-atividade');
 for (var c = 0; c < cards.length; c++) {
   cards[c].addEventListener('click', function() {
-    var tema = this.dataset.tema;
-    iniciarTema(tema);
+    iniciarTema(this.dataset.tema);
   });
 }
 
@@ -980,15 +992,6 @@ document.getElementById('btn-jogar-de-novo').addEventListener('click', function(
 document.getElementById('btn-menu-final').addEventListener('click', function() {
   mostrarTela('tela-inicio');
 });
-
-/* =====================================================
-   PREVENIR ZOOM NO DUPLO-TOQUE (iPad/mobile)
-===================================================== */
-document.addEventListener('touchend', function(e) {
-  if (e.target.tagName === 'BUTTON' || e.target.closest('.card-atividade')) {
-    e.preventDefault();
-  }
-}, { passive: false });
 
 </script>
 </body>
