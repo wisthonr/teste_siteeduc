@@ -68,6 +68,7 @@ body {
 .materia-desc{font-size:.88rem;font-weight:700;color:#888;margin-top:4px}
 .card-materia[data-materia="matematica"]{border-color:var(--azul);background:linear-gradient(145deg,#EBF5FF,#fff)}
 .card-materia[data-materia="ingles"]{border-color:var(--rosa);background:linear-gradient(145deg,#FDE2F3,#fff)}
+.card-materia[data-materia="matematica-impressao"]{border-color:var(--verde);background:linear-gradient(145deg,#E8F8EF,#fff)}
 
 /* ===== TELA MENU ===== */
 .btn-voltar{align-self:flex-start;background:none;border:none;font-family:inherit;font-size:1rem;font-weight:800;color:var(--azul);cursor:pointer;padding:4px 0}
@@ -193,6 +194,11 @@ body {
         <span class="materia-emoji">🧮</span>
         <span class="materia-nome">Matemática<br>Divertida!</span>
         <span class="materia-desc">Números, contas e mais!</span>
+      </button>
+      <button class="card-materia" data-materia="matematica-impressao">
+        <span class="materia-emoji">🖨️</span>
+        <span class="materia-nome">Matemática<br>para Imprimir</span>
+        <span class="materia-desc">Apostila A4 em PDF</span>
       </button>
       <button class="card-materia" data-materia="ingles">
         <span class="materia-emoji">🏠</span>
@@ -465,6 +471,10 @@ function lancarConfete(){
    NAVEGAÇÃO
 ================================================================ */
 function abrirMenu(materia){
+  if(materia==='matematica-impressao'){
+    window.location.href='apostila-matematica-impressao.html';
+    return;
+  }
   estado.materia=materia;
   var m=MENUS[materia];
   document.getElementById('menu-emoji').textContent    = m.emoji;
