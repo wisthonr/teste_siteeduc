@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Português Divertido - Julia 🌟</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Caveat:wght@400;700&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 :root{--azul:#4A90E2;--roxo:#9B59B6;--verde:#27AE60;--laranja:#F39C12;--rosa:#E91E8C;--vermelho:#E74C3C;--amarelo:#F1C40F;--fundo:#FFF9F0;--texto:#2C3E50;--branco:#FFF;--sombra:rgba(0,0,0,.15)}
 body{font-family:'Nunito','Arial Rounded MT Bold',Arial,sans-serif;background:var(--fundo);min-height:100vh;overflow-x:hidden;color:var(--texto)}
@@ -111,7 +111,7 @@ body{font-family:'Nunito','Arial Rounded MT Bold',Arial,sans-serif;background:va
 .escrita-palavra{font-size:2rem;font-weight:900;color:var(--roxo);margin-bottom:6px;letter-spacing:2px}
 .escrita-dica{font-size:.95rem;font-weight:700;color:#888;margin-bottom:12px}
 .canvas-wrap{position:relative;width:100%;max-width:500px;margin:0 auto;border:3px dashed #CCC;border-radius:16px;background:#FFFEF6;overflow:hidden}
-.canvas-wrap canvas{display:block;width:100%;height:200px}
+.canvas-wrap canvas{display:block;width:100%;height:360px}
 .btn-limpar{margin-top:10px;background:var(--vermelho);color:#fff;border:none;border-radius:14px;padding:12px 24px;font-family:inherit;font-size:1rem;font-weight:800;cursor:pointer}
 .btn-limpar:active{transform:scale(.93)}
 .escrita-progresso{font-size:1rem;font-weight:700;color:#666;margin-top:8px}
@@ -127,6 +127,9 @@ body{font-family:'Nunito','Arial Rounded MT Bold',Arial,sans-serif;background:va
 </style>
 </head>
 <body>
+
+<!-- Preload cursive font -->
+<span style="font-family:Caveat;position:absolute;opacity:0;pointer-events:none">ABCabc</span>
 
 <div class="bg" aria-hidden="true">
   <div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div>
@@ -492,9 +495,8 @@ function mostrarResultado(){
 var canvas,ctx,desenhando=false;
 function initCanvas(){
   canvas=document.getElementById('canvas');var wrap=canvas.parentElement;
-  var rect=wrap.getBoundingClientRect();canvas.width=rect.width-6;canvas.height=200;
+  var rect=wrap.getBoundingClientRect();canvas.width=rect.width-6;canvas.height=360;
   ctx=canvas.getContext('2d');ctx.strokeStyle='#2C3E50';ctx.lineWidth=3;ctx.lineCap='round';ctx.lineJoin='round';
-  desenharLinhas();
   canvas.addEventListener('pointerdown',function(e){e.preventDefault();desenhando=true;var pos=getPos(e);ctx.beginPath();ctx.moveTo(pos.x,pos.y);});
   canvas.addEventListener('pointermove',function(e){e.preventDefault();if(!desenhando)return;var pos=getPos(e);ctx.lineTo(pos.x,pos.y);ctx.stroke();});
   canvas.addEventListener('pointerup',function(e){e.preventDefault();desenhando=false;});
@@ -506,10 +508,47 @@ function initCanvas(){
 }
 function getPos(e){var rect=canvas.getBoundingClientRect();return{x:e.clientX-rect.left,y:e.clientY-rect.top};}
 function getTouchPos(e){var rect=canvas.getBoundingClientRect();var t=e.touches[0];return{x:t.clientX-rect.left,y:t.clientY-rect.top};}
-function desenharLinhas(){ctx.save();ctx.strokeStyle='#E0D6C8';ctx.lineWidth=1;for(var y=50;y<200;y+=50){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(canvas.width,y);ctx.stroke();}ctx.strokeStyle='#F5C6C6';ctx.beginPath();ctx.moveTo(40,0);ctx.lineTo(40,200);ctx.stroke();ctx.restore();ctx.strokeStyle='#2C3E50';ctx.lineWidth=3;}
-function limparCanvas(){ctx.clearRect(0,0,canvas.width,canvas.height);desenharLinhas();}
-function abrirEscrita(){escPalavras=embaralhar(PALAVRAS).slice(0,10);escIdx=0;mostrarTela('tela-escrita');setTimeout(function(){initCanvas();mostrarPalavra();},100);}
-function mostrarPalavra(){var p=escPalavras[escIdx];document.getElementById('esc-palavra').textContent=p.palavra;document.getElementById('esc-dica2').textContent='💡 '+p.dica;document.getElementById('esc-prog').textContent='Palavra '+(escIdx+1)+' de '+escPalavras.length;limparCanvas();var btnP=document.getElementById('btn-esc-px');btnP.textContent=(escIdx===escPalavras.length-1)?'Finalizar ✅':'Próxima ✏️';}
+function desenharLinhas(){
+  var h=canvas.height, w=canvas.width;
+  ctx.save();
+  /* Linhas de caderno - seção de cima (modelo) */
+  ctx.strokeStyle='#D4C9B8';ctx.lineWidth=1;
+  var linhas=[60,110];
+  for(var i=0;i<linhas.length;i++){ctx.beginPath();ctx.moveTo(0,linhas[i]);ctx.lineTo(w,linhas[i]);ctx.stroke();}
+  /* Separador entre modelo e escrita livre */
+  ctx.strokeStyle='#9B59B6';ctx.lineWidth=2;ctx.setLineDash([8,6]);
+  ctx.beginPath();ctx.moveTo(0,150);ctx.lineTo(w,150);ctx.stroke();
+  ctx.setLineDash([]);
+  /* Label "Cubra por cima" */
+  ctx.fillStyle='#C0A0D0';ctx.font='bold 13px Nunito,sans-serif';
+  ctx.fillText('✏️ Cubra por cima:',8,20);
+  /* Label "Agora sozinha" */
+  ctx.fillStyle='#A0C0A0';ctx.font='bold 13px Nunito,sans-serif';
+  ctx.fillText('📝 Agora escreva sozinha:',8,170);
+  /* Linhas de caderno - seção de baixo (livre) */
+  ctx.strokeStyle='#D4C9B8';ctx.lineWidth=1;
+  var linhasB=[210,260,310];
+  for(var i=0;i<linhasB.length;i++){ctx.beginPath();ctx.moveTo(0,linhasB[i]);ctx.lineTo(w,linhasB[i]);ctx.stroke();}
+  /* Margem vermelha em ambas seções */
+  ctx.strokeStyle='#F5C6C6';ctx.lineWidth=1;
+  ctx.beginPath();ctx.moveTo(40,0);ctx.lineTo(40,h);ctx.stroke();
+  ctx.restore();
+  ctx.strokeStyle='#2C3E50';ctx.lineWidth=3;
+}
+function desenharModelo(palavra){
+  ctx.save();
+  ctx.fillStyle='rgba(180,150,210,0.30)';
+  ctx.font='italic 48px Caveat,cursive';
+  ctx.textBaseline='middle';
+  var tw=ctx.measureText(palavra).width;
+  var x=Math.max(50,(canvas.width-tw)/2);
+  ctx.fillText(palavra,x,82);
+  ctx.restore();
+  ctx.strokeStyle='#2C3E50';ctx.lineWidth=3;
+}
+function limparCanvas(){ctx.clearRect(0,0,canvas.width,canvas.height);desenharLinhas();desenharModelo(escPalavras[escIdx].palavra);}
+function abrirEscrita(){escPalavras=embaralhar(PALAVRAS).slice(0,10);escIdx=0;mostrarTela('tela-escrita');setTimeout(function(){initCanvas();mostrarPalavra();},400);}
+function mostrarPalavra(){var p=escPalavras[escIdx];document.getElementById('esc-palavra').textContent=p.palavra;document.getElementById('esc-dica2').textContent='💡 '+p.dica;document.getElementById('esc-prog').textContent='Palavra '+(escIdx+1)+' de '+escPalavras.length;ctx.clearRect(0,0,canvas.width,canvas.height);desenharLinhas();desenharModelo(p.palavra);var btnP=document.getElementById('btn-esc-px');btnP.textContent=(escIdx===escPalavras.length-1)?'Finalizar ✅':'Próxima ✏️';}
 function proxPalavra(){escIdx++;if(escIdx>=escPalavras.length){confete();escIdx=0;mostrarTela('tela-menu');}else{mostrarPalavra();}}
 
 /* EXPOR NO WINDOW — obrigatório para onclick inline no iOS Safari */
