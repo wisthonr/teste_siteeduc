@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 <title>Português Divertido - Julia 🌟</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Dancing+Script:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 :root{--azul:#4A90E2;--roxo:#9B59B6;--verde:#27AE60;--laranja:#F39C12;--rosa:#E91E8C;--vermelho:#E74C3C;--amarelo:#F1C40F;--fundo:#FFF9F0;--texto:#2C3E50;--branco:#FFF;--sombra:rgba(0,0,0,.15)}
 body{font-family:'Nunito','Arial Rounded MT Bold',Arial,sans-serif;background:var(--fundo);min-height:100vh;overflow-x:hidden;color:var(--texto)}
@@ -127,9 +127,6 @@ body{font-family:'Nunito','Arial Rounded MT Bold',Arial,sans-serif;background:va
 </style>
 </head>
 <body>
-
-<!-- Preload cursive font -->
-<span style="font-family:Dancing Script;position:absolute;opacity:0;pointer-events:none">ABCabc</span>
 
 <div class="bg" aria-hidden="true">
   <div class="b"></div><div class="b"></div><div class="b"></div><div class="b"></div>
@@ -522,10 +519,10 @@ function desenharLinhas(){
   ctx.setLineDash([]);
   /* Label "Cubra por cima" */
   ctx.fillStyle='#C0A0D0';ctx.font='bold 14px Nunito,sans-serif';
-  ctx.fillText('Cubra a letra por cima:',50,22);
+  ctx.fillText('Escreva aqui:',50,22);
   /* Label "Agora sozinha" */
   ctx.fillStyle='#A0C0A0';ctx.font='bold 14px Nunito,sans-serif';
-  ctx.fillText('Agora escreva sozinha:',50,195);
+  ctx.fillText('Escreva de novo:',50,195);
   /* Linhas de caderno - seção de baixo (livre) */
   ctx.strokeStyle='#D4C9B8';ctx.lineWidth=1;
   var linhasB=[240,300,360];
@@ -536,20 +533,10 @@ function desenharLinhas(){
   ctx.restore();
   ctx.strokeStyle='#2C3E50';ctx.lineWidth=3;
 }
-function desenharModelo(palavra){
-  ctx.save();
-  ctx.fillStyle='rgba(180,150,210,0.30)';
-  ctx.font='700 68px Dancing Script,cursive';
-  ctx.textBaseline='middle';
-  var tw=ctx.measureText(palavra).width;
-  var x=Math.max(50,(canvas.width-tw)/2);
-  ctx.fillText(palavra,x,105);
-  ctx.restore();
-  ctx.strokeStyle='#2C3E50';ctx.lineWidth=3;
-}
-function limparCanvas(){ctx.clearRect(0,0,canvas.width,canvas.height);desenharLinhas();desenharModelo(escPalavras[escIdx].palavra);}
+
+function limparCanvas(){ctx.clearRect(0,0,canvas.width,canvas.height);desenharLinhas();}
 function abrirEscrita(){escPalavras=embaralhar(PALAVRAS).slice(0,10);escIdx=0;mostrarTela('tela-escrita');setTimeout(function(){initCanvas();mostrarPalavra();},400);}
-function mostrarPalavra(){var p=escPalavras[escIdx];document.getElementById('esc-palavra').textContent=p.palavra;document.getElementById('esc-dica2').textContent='💡 '+p.dica;document.getElementById('esc-prog').textContent='Palavra '+(escIdx+1)+' de '+escPalavras.length;ctx.clearRect(0,0,canvas.width,canvas.height);desenharLinhas();desenharModelo(p.palavra);var btnP=document.getElementById('btn-esc-px');btnP.textContent=(escIdx===escPalavras.length-1)?'Finalizar ✅':'Próxima ✏️';}
+function mostrarPalavra(){var p=escPalavras[escIdx];document.getElementById('esc-palavra').textContent=p.palavra;document.getElementById('esc-dica2').textContent='💡 '+p.dica;document.getElementById('esc-prog').textContent='Palavra '+(escIdx+1)+' de '+escPalavras.length;ctx.clearRect(0,0,canvas.width,canvas.height);desenharLinhas();var btnP=document.getElementById('btn-esc-px');btnP.textContent=(escIdx===escPalavras.length-1)?'Finalizar ✅':'Próxima ✏️';}
 function proxPalavra(){escIdx++;if(escIdx>=escPalavras.length){confete();escIdx=0;mostrarTela('tela-menu');}else{mostrarPalavra();}}
 
 /* EXPOR NO WINDOW — obrigatório para onclick inline no iOS Safari */
