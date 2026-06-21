@@ -6,12 +6,10 @@
 <title>Português Divertido - Julia 🌟</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap');
-
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
 :root{--azul:#4A90E2;--roxo:#9B59B6;--verde:#27AE60;--laranja:#F39C12;--rosa:#E91E8C;--vermelho:#E74C3C;--amarelo:#F1C40F;--fundo:#FFF9F0;--texto:#2C3E50;--branco:#FFF;--sombra:rgba(0,0,0,.15)}
 body{font-family:'Nunito','Arial Rounded MT Bold',Arial,sans-serif;background:var(--fundo);min-height:100vh;overflow-x:hidden;color:var(--texto)}
 
-/* BOLHAS */
 .bg{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden}
 .b{position:absolute;border-radius:50%;opacity:.09;animation:flu linear infinite}
 .b:nth-child(1){width:60px;height:60px;background:var(--roxo);left:5%;animation-duration:12s}
@@ -25,59 +23,65 @@ body{font-family:'Nunito','Arial Rounded MT Bold',Arial,sans-serif;background:va
 @keyframes flu{0%{transform:translateY(110vh);opacity:.03}50%{opacity:.12}100%{transform:translateY(-10vh);opacity:.03}}
 
 #app{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;padding:16px}
-
-/* TELAS */
 .tela{display:none;width:100%;max-width:700px;flex-direction:column;align-items:center;gap:18px;animation:fi .35s ease}
 .tela.ativa{display:flex}
 @keyframes fi{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 
-/* TELA INICIAL */
+/* MENU */
 .logo{font-size:72px;display:block;text-align:center;animation:bounce 1.5s infinite}
 .titulo{font-size:2.3rem;font-weight:900;text-align:center;line-height:1.15;margin-top:6px;background:linear-gradient(135deg,var(--roxo),var(--rosa),var(--laranja));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .julia{font-size:1.15rem;font-weight:800;color:var(--rosa);text-align:center;margin-top:2px}
 .sub{font-size:1.1rem;font-weight:700;color:var(--laranja);text-align:center}
 .aviso-prova{background:linear-gradient(135deg,#FFF3CD,#FFF9E6);border:3px solid var(--amarelo);border-radius:20px;padding:14px 20px;text-align:center;font-size:1rem;font-weight:700;color:#856404;width:100%}
+.secao-label{font-size:1.05rem;font-weight:900;color:var(--roxo);text-align:left;width:100%;padding-left:6px;margin-top:6px}
 
-/* GRADE */
 .grade{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%}
+.grade3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;width:100%}
 .card{background:var(--branco);border-radius:24px;padding:18px 12px;text-align:center;cursor:pointer;border:3px solid #D0D0D0;box-shadow:0 6px 20px var(--sombra);transition:transform .15s;font-family:inherit;width:100%}
 .card:active{transform:scale(.94)}
 .card-e{font-size:42px;display:block;margin-bottom:8px}
 .card-n{font-size:.92rem;font-weight:800;color:var(--texto);line-height:1.3}
+.card-sm{padding:14px 8px;border-radius:20px}
+.card-sm .card-e{font-size:32px;margin-bottom:4px}
+.card-sm .card-n{font-size:.8rem}
 
-/* cores */
-.card[data-tema="agostino"]{border-color:var(--roxo);background:linear-gradient(145deg,#F4ECF7,#fff)}
-.card[data-tema="rapunzel"]{border-color:var(--rosa);background:linear-gradient(145deg,#FDE2F3,#fff)}
+/* card cores */
+.card[data-tema="agostino"],.card[data-cor="roxo"]{border-color:var(--roxo);background:linear-gradient(145deg,#F4ECF7,#fff)}
+.card[data-tema="rapunzel"],.card[data-cor="rosa"]{border-color:var(--rosa);background:linear-gradient(145deg,#FDE2F3,#fff)}
 .card[data-tema="mn"]{border-color:var(--azul);background:linear-gradient(145deg,#EBF5FF,#fff)}
 .card[data-tema="til"]{border-color:var(--laranja);background:linear-gradient(145deg,#FEF9E7,#fff)}
 .card[data-tema="maiusculas"]{border-color:var(--verde);background:linear-gradient(145deg,#E9F7EF,#fff)}
 .card[data-tema="expressoes"]{border-color:var(--vermelho);background:linear-gradient(145deg,#FDEDEC,#fff)}
-.card[data-tema="lendas"]{border-color:var(--amarelo);background:linear-gradient(145deg,#FEF9E7,#fff)}
+.card[data-tema="lendas"],.card[data-cor="amarelo"]{border-color:var(--amarelo);background:linear-gradient(145deg,#FEF9E7,#fff)}
 .card[data-tema="escrita"]{border-color:var(--roxo);background:linear-gradient(145deg,#F4ECF7,#fff)}
+
+/* LEITURA */
+.leitura-card{width:100%;background:var(--branco);border-radius:24px;padding:24px 22px;box-shadow:0 6px 24px var(--sombra);text-align:left}
+.leitura-titulo{font-size:1.5rem;font-weight:900;color:var(--roxo);text-align:center;margin-bottom:4px}
+.leitura-autor{font-size:.88rem;font-weight:700;color:#888;text-align:center;margin-bottom:14px}
+.leitura-subtitulo{font-size:1.15rem;font-weight:900;color:var(--rosa);margin:16px 0 8px}
+.leitura-txt{font-size:1.05rem;font-weight:600;line-height:1.7;color:var(--texto);margin-bottom:10px}
+.leitura-gloss{background:#FEF9E7;border-left:4px solid var(--laranja);border-radius:0 12px 12px 0;padding:10px 14px;margin:10px 0;font-size:.95rem;font-weight:700;color:#856404}
+.leitura-regra{background:#E8F8F5;border-left:4px solid var(--verde);border-radius:0 12px 12px 0;padding:10px 14px;margin:10px 0;font-size:.95rem;font-weight:700;color:#1E8449}
+.leitura-sep{border:none;border-top:2px dashed #E0D6C8;margin:18px 0}
 
 /* QUIZ */
 .hdr{width:100%;background:var(--branco);border-radius:20px;padding:12px 18px;box-shadow:0 4px 16px var(--sombra);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
-.hdr-t{font-size:1rem;font-weight:900}
-.hdr-p{font-size:.88rem;font-weight:700;color:#666}
-.hdr-e{font-size:1.2rem;letter-spacing:2px}
+.hdr-t{font-size:1rem;font-weight:900}.hdr-p{font-size:.88rem;font-weight:700;color:#666}.hdr-e{font-size:1.2rem;letter-spacing:2px}
 .bar-w{width:100%;background:#E0E0E0;border-radius:10px;height:12px;overflow:hidden}
-.bar{height:100%;background:linear-gradient(90deg,var(--verde),var(--amarelo));border-radius:10px;transition:width .4s ease;width:0%}
-
+.bar{height:100%;background:linear-gradient(90deg,var(--verde),var(--amarelo));border-radius:10px;transition:width .4s;width:0%}
 .cperg{width:100%;background:var(--branco);border-radius:24px;padding:24px 20px;box-shadow:0 6px 24px var(--sombra);text-align:center}
 .perg-e{font-size:44px;display:block;margin-bottom:10px}
 .perg-t{font-size:1.3rem;font-weight:800;color:var(--texto);line-height:1.4;white-space:pre-line}
-
 .grid-o{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%}
 .grid-o.col1{grid-template-columns:1fr}
-
 .btn-o{background:var(--branco);border:3px solid #CCC;border-radius:20px;padding:16px 10px;font-family:inherit;font-size:1.1rem;font-weight:800;color:var(--texto);cursor:pointer;box-shadow:0 4px 14px var(--sombra);transition:transform .12s,border-color .15s,background .15s;min-height:66px;width:100%;line-height:1.25;text-align:center}
 .btn-o:active{transform:scale(.93)}
 .btn-o.certa{background:#E8F8F5;border-color:var(--verde);color:var(--verde);animation:pc .4s ease}
 .btn-o.errada{background:#FDEDEC;border-color:var(--vermelho);color:var(--vermelho);animation:sk .4s ease}
 @keyframes pc{0%{transform:scale(1)}50%{transform:scale(1.06)}100%{transform:scale(1)}}
 @keyframes sk{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
-
 .fb{width:100%;border-radius:20px;padding:16px 20px;text-align:center;font-size:1.2rem;font-weight:900;display:none;animation:fi .3s ease}
 .fb.c{background:#D5F5E3;color:#1E8449;border:3px solid var(--verde)}
 .fb.e{background:#FADBD8;color:#922B21;border:3px solid var(--vermelho)}
@@ -99,17 +103,15 @@ body{font-family:'Nunito','Arial Rounded MT Bold',Arial,sans-serif;background:va
 .mf{font-size:1rem;font-weight:700;color:#7F8C8D;text-align:center;margin-top:8px}
 .cr{width:100%;background:var(--branco);border-radius:24px;padding:28px 24px;box-shadow:0 6px 24px var(--sombra);display:flex;flex-direction:column;gap:6px}
 
-/* CONFETE */
 .conf{position:fixed;top:-10px;pointer-events:none;z-index:999;font-size:1.6rem;animation:cair 1.4s ease forwards}
 @keyframes cair{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(100vh) rotate(360deg);opacity:0}}
 
-/* ESCRITA - CANVAS */
+/* ESCRITA */
 .escrita-area{width:100%;background:var(--branco);border-radius:24px;padding:20px;box-shadow:0 6px 24px var(--sombra);text-align:center}
 .escrita-palavra{font-size:2rem;font-weight:900;color:var(--roxo);margin-bottom:6px;letter-spacing:2px}
 .escrita-dica{font-size:.95rem;font-weight:700;color:#888;margin-bottom:12px}
 .canvas-wrap{position:relative;width:100%;max-width:500px;margin:0 auto;border:3px dashed #CCC;border-radius:16px;background:#FFFEF6;overflow:hidden}
 .canvas-wrap canvas{display:block;width:100%;height:200px}
-.canvas-linhas{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
 .btn-limpar{margin-top:10px;background:var(--vermelho);color:#fff;border:none;border-radius:14px;padding:12px 24px;font-family:inherit;font-size:1rem;font-weight:800;cursor:pointer}
 .btn-limpar:active{transform:scale(.93)}
 .escrita-progresso{font-size:1rem;font-weight:700;color:#666;margin-top:8px}
@@ -118,6 +120,9 @@ body{font-family:'Nunito','Arial Rounded MT Bold',Arial,sans-serif;background:va
   .titulo{font-size:1.8rem}.card-e{font-size:36px}.card-n{font-size:.82rem}
   .perg-t{font-size:1.1rem}.btn-o{font-size:.98rem;min-height:58px;padding:12px 8px}
   .escrita-palavra{font-size:1.6rem}
+  .leitura-txt{font-size:1rem}.leitura-titulo{font-size:1.3rem}
+  .card-sm .card-e{font-size:28px}.card-sm .card-n{font-size:.72rem}
+  .grade3{grid-template-columns:1fr 1fr 1fr;gap:8px}
 }
 </style>
 </head>
@@ -130,7 +135,7 @@ body{font-family:'Nunito','Arial Rounded MT Bold',Arial,sans-serif;background:va
 
 <div id="app">
 
-  <!-- TELA MENU -->
+  <!-- ========== TELA MENU ========== -->
   <div id="tela-menu" class="tela ativa">
     <div style="text-align:center;margin-top:8px">
       <span class="logo">📖</span>
@@ -138,7 +143,23 @@ body{font-family:'Nunito','Arial Rounded MT Bold',Arial,sans-serif;background:va
       <p class="julia">✨ para Julia ✨</p>
     </div>
     <div class="aviso-prova">📅 Revisão para a prova do dia 24/06!</div>
-    <p class="sub">Escolha uma atividade ⬇️</p>
+
+    <!-- SEÇÃO: LER TEXTOS -->
+    <p class="secao-label">📚 Ler os Textos</p>
+    <div class="grade3">
+      <button class="card card-sm" data-cor="roxo" onclick="window.mostrarTela('tela-ler-agostino')">
+        <span class="card-e">🏚️</span><span class="card-n">A Casa<br>Abandonada</span>
+      </button>
+      <button class="card card-sm" data-cor="rosa" onclick="window.mostrarTela('tela-ler-rapunzel')">
+        <span class="card-e">👸</span><span class="card-n">Rapunzel</span>
+      </button>
+      <button class="card card-sm" data-cor="amarelo" onclick="window.mostrarTela('tela-ler-lendas')">
+        <span class="card-e">🧙</span><span class="card-n">Lendas<br>Brasileiras</span>
+      </button>
+    </div>
+
+    <!-- SEÇÃO: ATIVIDADES -->
+    <p class="secao-label">🎯 Atividades</p>
     <div class="grade">
       <button class="card" data-tema="agostino" onclick="window.iniciarTema('agostino')">
         <span class="card-e">🏚️</span><span class="card-n">A Casa<br>Abandonada</span>
@@ -167,7 +188,97 @@ body{font-family:'Nunito','Arial Rounded MT Bold',Arial,sans-serif;background:va
     </div>
   </div>
 
-  <!-- TELA QUIZ -->
+  <!-- ========== LEITURA: AGOSTINO ========== -->
+  <div id="tela-ler-agostino" class="tela">
+    <button class="bv" onclick="window.mostrarTela('tela-menu')">⬅️ Voltar ao Menu</button>
+    <div class="leitura-card">
+      <p class="leitura-titulo">🏚️ Era uma casa abandonada</p>
+      <p class="leitura-autor">Resumo do texto de Ana Rapha Nunes</p>
+
+      <p class="leitura-subtitulo">Parte 1</p>
+      <p class="leitura-txt">Numa rua de poeira e pedra, existia uma casa abandonada. Ela tinha janelas quebradas, portas bambas e o jardim parecia uma floresta. Ninguém entrava ali havia muitos anos.</p>
+      <div class="leitura-gloss">📘 <strong>Bambas</strong> = frouxas, que não estão firmes.</div>
+      <p class="leitura-txt">Mas a casa nem sempre foi assim. Ela já teve muitas histórias: uma artista de cinema morou ali, um casal de músicos tocava rock todo domingo, e num tempo ela virou até uma livraria, cheia de gente nos fins de semana.</p>
+      <p class="leitura-txt">Depois o tempo passou e a casa ficou vazia. Mistérios começaram a habitar aquelas paredes escuras. As crianças que brincavam na rua diziam que havia bruxas e monstros andando pelas tábuas de madeira, e por isso ninguém tinha coragem de entrar lá.</p>
+      <p class="leitura-txt">Agostino era um menino de olhos curiosos e sorriso tímido. Ele não era de muita conversa e guardava as palavras como se fossem um tesouro. Nas tardes sozinho, criava mundos imaginários.</p>
+      <p class="leitura-txt">Um dia de ventos fortes, Agostino viu uma sombra atrás das cortinas da casa abandonada. Era um menino, ainda mais menino que ele, usando chapéu e assobiando. Agostino ficou com vontade de ajudar o garoto, mas a coragem parecia tão distante. Então, ele ficou apenas espiando pela janela do seu quarto.</p>
+      <p class="leitura-txt">Na outra tarde, o menino do chapéu voltou à casa abandonada. Agostino sentiu que algo estava prestes a acontecer. Ele se vestiu de heroísmo, atravessou a rua e começou a entrar pé ante pé. Um barulho o fez recuar.</p>
+      <div class="leitura-gloss">📘 <strong>Recuar</strong> = andar para trás, dar um passo atrás.</div>
+      <p class="leitura-txt">"Quem está aí?" — gritou Agostino. Com medo, ele correu mais veloz que uma lebre e se escondeu no seu quarto. Ali estava são e salvo.</p>
+
+      <hr class="leitura-sep">
+      <p class="leitura-subtitulo">Parte 2</p>
+      <p class="leitura-txt">A curiosidade não largou Agostino. Ele resolveu tentar de novo. Colocou um chapéu, pensando que assim ganharia coragem, e foi...</p>
+      <p class="leitura-txt">Entrou devagar. Passou pela primeira sala, ouviu um ruído e subiu no sofá. Era apenas um rato, que parecia enorme de tão grande.</p>
+      <p class="leitura-txt">Agostino continuou andando. Quando atravessou o corredor, uma mão encostou no seu ombro. Ele gritou! Mas era uma menina de grandes tranças, que estava quase sussurrando nos seus ouvidos. Ela ficou com mais medo do que ele e fugiu apressada. Agostino também acabou fugindo para casa.</p>
+      <p class="leitura-txt">Mas o pensamento sobre a casa cheia de mistérios continuava. Então, outra visita chegou: Agostino viu anões entrando naquele lugar.</p>
+      <div class="leitura-gloss">📘 <strong>Encafifado</strong> = curioso e desconfiado.</div>
+      <p class="leitura-txt">O menino ficou encafifado. O medo rondava suas ideias, mas a curiosidade foi maior. Ele foi atrás dos anões. Quando estava chegando perto, eles sumiram na poeira. Mas deixaram algo cair pelo caminho...</p>
+      <p class="leitura-txt">Agostino se aproximou. Era um livro, amarelado pelo tempo. Ao abrir as primeiras páginas, não conseguiu mais parar de ler. Sentou-se numa poltrona velha e gasta, afastou as teias de aranha e se entregou ao mistério do menino detetive.</p>
+      <div class="leitura-gloss">📘 <strong>Puída</strong> = gasta, bastante usada.</div>
+      <p class="leitura-txt">Só saiu de lá quando já era noite. Voltou no dia seguinte, e no outro, e no outro. Quando terminou o livro do menino detetive, fez uma nova descoberta: um baú cheio de livros antigos! Talvez fossem da época em que aquele lugar era uma livraria.</p>
+      <p class="leitura-txt">E assim, Agostino percebeu que a casa abandonada realmente tinha bruxas, monstros e personagens horripilantes. Todos estavam dentro das páginas dos livros! 📚</p>
+      <div class="leitura-gloss">📘 <strong>Horripilantes</strong> = assustadores, que provocam medo.</div>
+      <div class="leitura-regra">💡 Esse tipo de texto é um <strong>conto de mistério</strong>: uma história com fatos estranhos que nos deixam curiosos, e o mistério só se revela no final!</div>
+    </div>
+    <button class="ba bp" style="width:100%" onclick="window.iniciarTema('agostino')">🎯 Fazer Atividade</button>
+    <button class="ba bm" style="width:100%" onclick="window.mostrarTela('tela-menu')">🏠 Voltar ao Menu</button>
+  </div>
+
+  <!-- ========== LEITURA: RAPUNZEL ========== -->
+  <div id="tela-ler-rapunzel" class="tela">
+    <button class="bv" onclick="window.mostrarTela('tela-menu')">⬅️ Voltar ao Menu</button>
+    <div class="leitura-card">
+      <p class="leitura-titulo">👸 Rapunzel</p>
+      <p class="leitura-autor">Resumo do conto dos Irmãos Grimm</p>
+
+      <p class="leitura-txt">Era uma vez um casal que morava perto da fazenda de uma bruxa. A esposa estava grávida e disse ao marido que queria muito comer beterrabas.</p>
+      <p class="leitura-txt">O marido, para agradar a esposa, foi até a horta da bruxa colher beterrabas. Ele fez isso várias noites. Até que uma noite, a bruxa o pegou de surpresa e impôs uma condição:</p>
+      <p class="leitura-txt">— Sirva-se à vontade! Mas há um preço: quando o bebê nascer, você terá que entregá-lo a mim!</p>
+      <p class="leitura-txt">Os meses se passaram. O bebê nasceu e o homem foi obrigado a cumprir o acordo. A bruxa levou a criança, deu a ela o nome de Rapunzel e a trancou no alto de uma torre escondida na floresta.</p>
+      <p class="leitura-txt">Os anos foram passando. Rapunzel aprendeu a cantar com os pássaros, que eram seus únicos amigos. Sua voz era tão doce que um príncipe, ao passear pela floresta, ficou encantado. Ele observou como a bruxa fazia para subir na torre e descobriu o segredo:</p>
+      <p class="leitura-txt">— Rapunzel, jogue suas tranças! — gritava a feiticeira. E a jovem deixava cair suas longas tranças douradas pela janela.</p>
+      <p class="leitura-txt">Quando a bruxa foi embora, o príncipe repetiu o chamado. Rapunzel jogou as tranças e ele subiu. Quando os dois se viram, sentiram o coração bater mais forte e se apaixonaram. A partir desse dia, o príncipe visitava Rapunzel todos os dias.</p>
+      <p class="leitura-txt">A bruxa desconfiou e resolveu espioná-la. Ao descobrir as visitas do príncipe, ficou furiosa: pegou uma tesoura, cortou as tranças de Rapunzel e levou-a para um lugar longe, abandonando-a na floresta.</p>
+      <p class="leitura-txt">De volta à torre, a bruxa amarrou as tranças num gancho e esperou o príncipe. Quando ele chegou e subiu, encontrou a bruxa, que disse: "Você nunca mais a encontrará!"</p>
+      <p class="leitura-txt">A bruxa empurrou o príncipe da torre. Ele caiu sobre espinhos que feriram seus olhos, e ele não conseguia mais enxergar. Mesmo cego, ele vagou pela floresta procurando Rapunzel.</p>
+      <p class="leitura-txt">Certa tarde, escutou um canto familiar. Seguindo a doce melodia, encontrou Rapunzel. Ela o abraçou e, ao vê-lo naquele estado, começou a chorar. As lágrimas de Rapunzel caíram sobre os olhos dele e, como mágica, devolveram a sua visão!</p>
+      <p class="leitura-txt">Os dois partiram juntos para o reino do príncipe, se casaram e foram felizes para sempre. E a bruxa? Nunca mais foi vista. 🏰</p>
+      <div class="leitura-regra">💡 Rapunzel é um <strong>conto de fadas</strong>: começa com "Era uma vez" e tem magia, vilão e final feliz!</div>
+    </div>
+    <button class="ba bp" style="width:100%" onclick="window.iniciarTema('rapunzel')">🎯 Fazer Atividade</button>
+    <button class="ba bm" style="width:100%" onclick="window.mostrarTela('tela-menu')">🏠 Voltar ao Menu</button>
+  </div>
+
+  <!-- ========== LEITURA: LENDAS ========== -->
+  <div id="tela-ler-lendas" class="tela">
+    <button class="bv" onclick="window.mostrarTela('tela-menu')">⬅️ Voltar ao Menu</button>
+    <div class="leitura-card">
+      <p class="leitura-titulo">🧙 Lendas Brasileiras</p>
+      <p class="leitura-autor">Resumo das lendas do folclore</p>
+
+      <p class="leitura-subtitulo">🎩 Saci-Pererê</p>
+      <p class="leitura-txt">O Saci-Pererê é um menino travesso que tem apenas uma perna. Ele adora aprontar: entra nas casas, apaga a chama dos fogões e faz as pessoas se perderem nas estradas.</p>
+      <p class="leitura-txt">Pulando numa perna só, ele consegue ser muito rápido. Seus poderes vêm de um gorro vermelho, que faz ele ficar invisível e soltar um assobio que parece vir de lugar nenhum! 🎩</p>
+
+      <hr class="leitura-sep">
+      <p class="leitura-subtitulo">🔥 Boitatá</p>
+      <p class="leitura-txt">Pelos campos e matas brasileiras, dizem que existe uma cobra de fogo chamada Boitatá. Ela se transforma em brasa para queimar quem tenta incendiar as florestas.</p>
+      <p class="leitura-txt">Segundo a lenda, ela seria a única sobrevivente de um grande dilúvio que cobriu a Terra. 🐍🔥</p>
+      <div class="leitura-gloss">📘 <strong>Dilúvio</strong> = uma enchente causada por chuvas tão fortes que acabam cobrindo grandes áreas.</div>
+
+      <hr class="leitura-sep">
+      <p class="leitura-subtitulo">🐊 Cuca</p>
+      <p class="leitura-txt">A Cuca é o bicho-papão mais conhecido do folclore brasileiro. Ela tem cabeça de jacaré e aparece à noite para levar embora crianças mal-educadas.</p>
+      <p class="leitura-txt">Dizem que a Cuca dorme apenas uma noite a cada sete anos! E quando fica brava, solta um grito que pode ser ouvido de muito longe. 🐊😱</p>
+
+      <div class="leitura-regra">💡 Lendas são histórias passadas de geração em geração para explicar coisas misteriosas da natureza ou assustar as pessoas!</div>
+    </div>
+    <button class="ba bp" style="width:100%" onclick="window.iniciarTema('lendas')">🎯 Fazer Atividade</button>
+    <button class="ba bm" style="width:100%" onclick="window.mostrarTela('tela-menu')">🏠 Voltar ao Menu</button>
+  </div>
+
+  <!-- ========== TELA QUIZ ========== -->
   <div id="tela-quiz" class="tela">
     <div class="hdr">
       <span id="hdr-t" class="hdr-t">📖</span>
@@ -187,7 +298,7 @@ body{font-family:'Nunito','Arial Rounded MT Bold',Arial,sans-serif;background:va
     </div>
   </div>
 
-  <!-- TELA ESCRITA -->
+  <!-- ========== TELA ESCRITA ========== -->
   <div id="tela-escrita" class="tela">
     <button class="bv" onclick="window.mostrarTela('tela-menu')">⬅️ Voltar ao Menu</button>
     <div class="escrita-area">
@@ -195,9 +306,7 @@ body{font-family:'Nunito','Arial Rounded MT Bold',Arial,sans-serif;background:va
       <p class="escrita-dica">Escreva a palavra com a caneta!</p>
       <p id="esc-palavra" class="escrita-palavra">CAMPO</p>
       <p id="esc-dica2" class="escrita-dica">Use letra cursiva 📝</p>
-      <div class="canvas-wrap">
-        <canvas id="canvas"></canvas>
-      </div>
+      <div class="canvas-wrap"><canvas id="canvas"></canvas></div>
       <button class="btn-limpar" onclick="window.limparCanvas()">🗑️ Apagar</button>
       <p id="esc-prog" class="escrita-progresso">Palavra 1 de 10</p>
     </div>
@@ -207,7 +316,7 @@ body{font-family:'Nunito','Arial Rounded MT Bold',Arial,sans-serif;background:va
     </div>
   </div>
 
-  <!-- TELA FINAL -->
+  <!-- ========== TELA FINAL ========== -->
   <div id="tela-final" class="tela">
     <div class="cr">
       <span class="trofeu">🏆</span>
@@ -228,8 +337,7 @@ body{font-family:'Nunito','Arial Rounded MT Bold',Arial,sans-serif;background:va
 /* ================================================================
    BANCO DE PERGUNTAS
 ================================================================ */
-var BANCO = {
-
+var BANCO={
 agostino:{nome:'🏚️ A Casa Abandonada',emoji:'🏚️',perguntas:[
   {texto:'O que havia na rua de poeira e pedra?',opcoes:['Um castelo','Uma casa abandonada','Uma escola','Um parque'],certa:1},
   {texto:'Como era a casa abandonada?',opcoes:['Janelas quebradas e portas bambas','Paredes brancas e jardim bonito','Quintal cheio de estátuas','Porta nova e janelas grandes'],certa:0},
@@ -238,22 +346,24 @@ agostino:{nome:'🏚️ A Casa Abandonada',emoji:'🏚️',perguntas:[
   {texto:'Por que as crianças não entravam na casa?',opcoes:['Porque era longe','Porque tinha um cachorro','Diziam que havia bruxas e monstros','Porque estava trancada'],certa:2},
   {texto:'Como era Agostino?',opcoes:['Corajoso e falante','Curioso e sorriso tímido','Usava sempre chapéu','Alto e forte'],certa:1},
   {texto:'O que Agostino viu atrás da cortina?',opcoes:['Um gato','Uma bruxa','Um menino','Uma menina'],certa:2},
-  {texto:'Qual foi a grande descoberta de Agostino?',opcoes:['Um tesouro de ouro','Um baú cheio de livros','Uma porta secreta','Um animal escondido'],certa:1},
-  {texto:'As bruxas e monstros da casa estavam onde?',opcoes:['No porão','No jardim','Dentro das páginas dos livros','No telhado'],certa:2},
-  {texto:'O que "bambas" significa no texto?',opcoes:['Fortes e firmes','Novas','Frouxas, não estão firmes','Coloridas'],certa:2}
+  {texto:'Quem era a primeira visita\nna casa abandonada?',opcoes:['O menino do chapéu','Agostino','Uma menina de tranças','Os anões'],certa:2},
+  {texto:'Por que Agostino subiu no sofá?',opcoes:['Para ver pela janela','Ouviu um ruído e viu um rato','Porque queria dormir','Porque o chão estava molhado'],certa:1},
+  {texto:'Qual foi a grande descoberta\nde Agostino no fim da história?',opcoes:['Um tesouro de ouro','Um baú cheio de livros','Uma porta secreta','Um animal escondido'],certa:1},
+  {texto:'As bruxas e monstros da casa\nestavam onde?',opcoes:['No porão','No jardim','Dentro das páginas dos livros','No telhado'],certa:2},
+  {texto:'O que "bambas" significa?',opcoes:['Fortes e firmes','Novas','Frouxas, não estão firmes','Coloridas'],certa:2}
 ]},
-
 rapunzel:{nome:'👸 Rapunzel',emoji:'👸',perguntas:[
   {texto:'O que a mulher grávida queria comer?',opcoes:['Maçãs','Beterrabas','Cenouras','Morangos'],certa:1},
-  {texto:'O que o marido fez para atender o desejo da esposa?',opcoes:['Foi ao mercado','Foi à horta da bruxa','Plantou beterrabas','Pediu ao vizinho'],certa:1},
+  {texto:'O que o marido fez para atender\no desejo da esposa?',opcoes:['Foi ao mercado','Foi à horta da bruxa','Plantou beterrabas','Pediu ao vizinho'],certa:1},
   {texto:'Qual foi a condição da bruxa?',opcoes:['Plantar beterrabas','Cuidar da horta','Entregar o bebê quando nascesse','Nunca mais voltar'],certa:2},
   {texto:'O que a bruxa fez com o bebê?',opcoes:['Deu para outra família','Trancou numa torre na floresta','Mandou para longe','Deixou na horta'],certa:1},
-  {texto:'Quem eram os únicos amigos de Rapunzel?',opcoes:['Os coelhos','As borboletas','Os pássaros','Os peixes'],certa:2},
-  {texto:'Como o príncipe descobriu como subir na torre?',opcoes:['Viu a bruxa passeando','Viu que cortaram as tranças','Observou como a bruxa fazia para subir','Percebeu os passarinhos entrando'],certa:2},
-  {texto:'O que aconteceu quando o príncipe caiu da torre?',opcoes:['Ele se machucou na perna','Espinhos feriram seus olhos','Ele caiu na água','Nada aconteceu'],certa:1},
-  {texto:'O que as lágrimas de Rapunzel fizeram?',opcoes:['Criaram um rio','Devolveram a visão do príncipe','Derreteram a torre','Chamaram a bruxa'],certa:1}
+  {texto:'Quem eram os únicos amigos\nde Rapunzel?',opcoes:['Os coelhos','As borboletas','Os pássaros','Os peixes'],certa:2},
+  {texto:'Como o príncipe descobriu\ncomo subir na torre?',opcoes:['Viu a bruxa passeando','Viu que cortaram as tranças','Observou como a bruxa fazia','Percebeu os passarinhos entrando'],certa:2},
+  {texto:'O que a bruxa fez quando\ndescobriu as visitas do príncipe?',opcoes:['Não fez nada','Cortou as tranças de Rapunzel\ne abandonou na floresta','Convidou para jantar','Fugiu da torre'],certa:1},
+  {texto:'O que aconteceu quando o príncipe\ncaiu da torre?',opcoes:['Ele se machucou na perna','Espinhos feriram seus olhos','Ele caiu na água','Nada aconteceu'],certa:1},
+  {texto:'O que as lágrimas de Rapunzel\nfizeram?',opcoes:['Criaram um rio','Devolveram a visão do príncipe','Derreteram a torre','Chamaram a bruxa'],certa:1},
+  {texto:'Como terminou a história?',opcoes:['A bruxa venceu','Rapunzel ficou na floresta','O príncipe e Rapunzel se casaram\ne foram felizes','Todos ficaram tristes'],certa:2}
 ]},
-
 mn:{nome:'🔤 M ou N?',emoji:'🔤',perguntas:[
   {texto:'Complete: CA__PO',opcoes:['M → CAMPO','N → CANPO'],certa:0},
   {texto:'Complete: BO__BA',opcoes:['N → BONBA','M → BOMBA'],certa:1},
@@ -263,10 +373,9 @@ mn:{nome:'🔤 M ou N?',emoji:'🔤',perguntas:[
   {texto:'Complete: SE__TE',opcoes:['M → SEMTE','N → SENTE'],certa:1},
   {texto:'Complete: MA__TA',opcoes:['N → MANTA','M → MAMTA'],certa:0},
   {texto:'A regra diz:\nAntes de P e B usamos:',opcoes:['Sempre N','Sempre M'],certa:1},
-  {texto:'Complete: LA__PADA',opcoes:['N → LANPADA','M → LÂMPADA'],certa:1},
+  {texto:'Complete: LÂ__PADA',opcoes:['N → LÂNPADA','M → LÂMPADA'],certa:1},
   {texto:'Complete: SO__BRA',opcoes:['N → SONBRA','M → SOMBRA'],certa:1}
 ]},
-
 til:{nome:'〰️ Til (~)',emoji:'〰️',perguntas:[
   {texto:'Qual palavra tem til?',opcoes:['CAMPO','BALÃO','SOMBRA','BOMBA'],certa:1},
   {texto:'O til (~) aparece sobre quais letras?',opcoes:['Sobre M e N','Sobre as vogais A e O','Sobre qualquer letra','Sobre as consoantes'],certa:1},
@@ -274,340 +383,139 @@ til:{nome:'〰️ Til (~)',emoji:'〰️',perguntas:[
   {texto:'Qual palavra precisa de til?',opcoes:['BOMBOM','MAMAO → MAMÃO','PLANTA','LONGO'],certa:1},
   {texto:'Qual tem som nasal com til?',opcoes:['SOMBRA','CAMPO','CORAÇÃO','TEMPO'],certa:2},
   {texto:'Qual palavra NÃO tem til?',opcoes:['ESCURIDÃO','CLARIDADE','ILUMINAÇÃO','BALÃO'],certa:1},
-  {texto:'VULCÃO tem til sobre qual letra?',opcoes:['U','A','O → Ã','C'],certa:2},
+  {texto:'VULCÃO tem til sobre qual letra?',opcoes:['U','A','A → Ã','C'],certa:2},
   {texto:'Qual grupo de palavras tem til?',opcoes:['Campo, bomba, sente','Balão, mamão, melão','Lombo, manta, sombra','Tampa, longo, planta'],certa:1}
 ]},
-
 maiusculas:{nome:'🔠 Letra Maiúscula',emoji:'🔠',perguntas:[
   {texto:'Quando usamos letra maiúscula?',opcoes:['No meio da frase','No início da frase e em nomes próprios','Apenas em nomes de animais','Nunca'],certa:1},
   {texto:'Qual frase está correta?',opcoes:['o menino gosta de ler.','O menino gosta de ler.','o Menino gosta De ler.','O MENINO GOSTA DE LER.'],certa:1},
-  {texto:'"agostino ficou com medo."\nO que está errado?',opcoes:['Falta ponto final','Agostino deveria ter letra maiúscula','Nada está errado','Falta vírgula'],certa:1},
+  {texto:'"agostino ficou com medo."\nO que está errado?',opcoes:['Falta ponto final','Agostino deveria ter maiúscula','Nada está errado','Falta vírgula'],certa:1},
   {texto:'Nomes próprios começam com:',opcoes:['Letra minúscula','Letra maiúscula','Qualquer letra','Números'],certa:1},
-  {texto:'Qual nome está escrito corretamente?',opcoes:['rapunzel','RAPUNZEL','Rapunzel','rApUnZeL'],certa:2},
+  {texto:'Qual nome está correto?',opcoes:['rapunzel','RAPUNZEL','Rapunzel','rApUnZeL'],certa:2},
   {texto:'Toda frase termina com:',opcoes:['Vírgula','Nada','Ponto final','Dois pontos'],certa:2},
   {texto:'"o saci pererê mora na floresta"\nQuantos erros de maiúscula tem?',opcoes:['1 erro','2 erros','3 erros','Nenhum'],certa:2},
-  {texto:'Qual frase usa maiúscula corretamente?',opcoes:['a Julia mora em curitiba.','A Julia mora em Curitiba.','a julia mora em Curitiba.','A julia mora em curitiba.'],certa:1}
+  {texto:'Qual frase usa maiúscula certo?',opcoes:['a Julia mora em curitiba.','A Julia mora em Curitiba.','a julia mora em Curitiba.','A julia mora em curitiba.'],certa:1}
 ]},
-
 expressoes:{nome:'💭 O que significa?',emoji:'💭',perguntas:[
-  {texto:'"Ela colocou pressa nos pés."\nO que significa?',opcoes:['Ela prendeu os pés','Ela fugiu apressada','Ela estava com o pé machucado','Ela calçou um sapato'],certa:1},
+  {texto:'"Ela colocou pressa nos pés."\nO que significa?',opcoes:['Ela prendeu os pés','Ela fugiu apressada','Pé machucado','Calçou um sapato'],certa:1},
   {texto:'"Agostino ficou encafifado."\nO que significa?',opcoes:['Ficou com fome','Ficou curioso e desconfiado','Ficou com sono','Ficou feliz'],certa:1},
-  {texto:'"Ele se vestiu de heroísmo."\nO que significa?',opcoes:['Colocou uma fantasia','Criou coragem','Ficou com medo','Comprou roupa nova'],certa:1},
+  {texto:'"Ele se vestiu de heroísmo."\nO que significa?',opcoes:['Colocou fantasia','Criou coragem','Ficou com medo','Comprou roupa'],certa:1},
   {texto:'"A poltrona estava puída."\nO que significa puída?',opcoes:['Nova e bonita','Gasta, bastante usada','Muito grande','Muito colorida'],certa:1},
-  {texto:'"Personagens horripilantes"\nO que significa horripilantes?',opcoes:['Engraçados','Bonitos','Assustadores, que provocam medo','Pequenos'],certa:2},
+  {texto:'"Personagens horripilantes"\nO que significa?',opcoes:['Engraçados','Bonitos','Assustadores','Pequenos'],certa:2},
   {texto:'"Correu mais veloz que uma lebre."\nO que significa?',opcoes:['Correu devagar','Correu muito rápido','Parou de correr','Andou normal'],certa:1},
-  {texto:'"Recuar" significa:',opcoes:['Ir para frente','Andar para trás, dar um passo atrás','Pular','Correr rápido'],certa:1},
+  {texto:'"Recuar" significa:',opcoes:['Ir para frente','Andar para trás','Pular','Correr rápido'],certa:1},
   {texto:'"Guardava as palavras como tesouro."\nO que significa?',opcoes:['Falava muito','Valorizava muito as palavras','Escondia dinheiro','Não sabia ler'],certa:1}
 ]},
-
 lendas:{nome:'🧙 Lendas Brasileiras',emoji:'🧙',perguntas:[
-  {texto:'De qual objeto vem os poderes do Saci-Pererê?',opcoes:['Uma capa mágica','Um gorro vermelho','Uma varinha','Um anel'],certa:1},
-  {texto:'Onde vive o Boitatá?',opcoes:['No mar','Nos campos e matas brasileiras','Na cidade','No deserto'],certa:1},
+  {texto:'De qual objeto vem os poderes\ndo Saci-Pererê?',opcoes:['Uma capa mágica','Um gorro vermelho','Uma varinha','Um anel'],certa:1},
+  {texto:'Onde vive o Boitatá?',opcoes:['No mar','Nos campos e matas','Na cidade','No deserto'],certa:1},
   {texto:'O que é o Boitatá?',opcoes:['Um pássaro de fogo','Uma cobra de fogo','Um dragão','Um lobo'],certa:1},
-  {texto:'O que a Cuca faz?',opcoes:['Ajuda as crianças','Leva embora crianças mal-educadas','Cozinha para todos','Canta para dormir'],certa:1},
+  {texto:'O que a Cuca faz?',opcoes:['Ajuda as crianças','Leva embora crianças\nmal-educadas','Cozinha para todos','Canta para dormir'],certa:1},
   {texto:'A Cuca tem cabeça de:',opcoes:['Leão','Cobra','Jacaré','Lobo'],certa:2},
-  {texto:'O Saci-Pererê tem quantas pernas?',opcoes:['Duas','Nenhuma','Uma','Três'],certa:2},
-  {texto:'O que o Saci gosta de fazer?',opcoes:['Ajudar as pessoas','Aprontar e fazer travessuras','Dormir o dia todo','Estudar'],certa:1},
-  {texto:'"Dilúvio" significa:',opcoes:['Seca muito forte','Enchente causada por chuvas fortes','Vento forte','Terremoto'],certa:1}
+  {texto:'O Saci-Pererê tem\nquantas pernas?',opcoes:['Duas','Nenhuma','Uma','Três'],certa:2},
+  {texto:'O que o Saci gosta de fazer?',opcoes:['Ajudar as pessoas','Fazer travessuras','Dormir o dia todo','Estudar'],certa:1},
+  {texto:'"Dilúvio" significa:',opcoes:['Seca muito forte','Enchente de chuvas fortes','Vento forte','Terremoto'],certa:1}
 ]}
-
 };
 
-/* ================================================================
-   PALAVRAS PARA PRÁTICA DE ESCRITA
-================================================================ */
-var PALAVRAS = [
-  {palavra:'CAMPO',dica:'M antes de P!'},
-  {palavra:'BOMBA',dica:'M antes de B!'},
-  {palavra:'SOMBRA',dica:'M antes de B!'},
-  {palavra:'LÂMPADA',dica:'M antes de P!'},
-  {palavra:'BALÃO',dica:'Til no Ã!'},
-  {palavra:'CORAÇÃO',dica:'Til no Ã!'},
-  {palavra:'SENTE',dica:'N antes de T!'},
-  {palavra:'MANTA',dica:'N antes de T!'},
-  {palavra:'Rapunzel',dica:'Nome próprio, começa com maiúscula!'},
-  {palavra:'Agostino',dica:'Nome próprio, começa com maiúscula!'},
-  {palavra:'TAMPA',dica:'M antes de P!'},
-  {palavra:'MAMÃO',dica:'Til no Ã!'}
+/* PALAVRAS ESCRITA */
+var PALAVRAS=[
+  {palavra:'CAMPO',dica:'M antes de P!'},{palavra:'BOMBA',dica:'M antes de B!'},
+  {palavra:'SOMBRA',dica:'M antes de B!'},{palavra:'LÂMPADA',dica:'M antes de P!'},
+  {palavra:'BALÃO',dica:'Til no Ã!'},{palavra:'CORAÇÃO',dica:'Til no Ã!'},
+  {palavra:'SENTE',dica:'N antes de T!'},{palavra:'MANTA',dica:'N antes de T!'},
+  {palavra:'Rapunzel',dica:'Nome próprio — maiúscula!'},
+  {palavra:'Agostino',dica:'Nome próprio — maiúscula!'},
+  {palavra:'TAMPA',dica:'M antes de P!'},{palavra:'MAMÃO',dica:'Til no Ã!'}
 ];
 
-/* ================================================================
-   ESTADO
-================================================================ */
-var estado = {tema:'',perguntas:[],indice:0,acertos:0,respondeu:false};
-var escIdx = 0;
-var escPalavras = [];
+/* ESTADO */
+var estado={tema:'',perguntas:[],indice:0,acertos:0,respondeu:false};
+var escIdx=0,escPalavras=[];
 
-/* ================================================================
-   UTILITÁRIOS
-================================================================ */
+/* UTILITÁRIOS */
 function embaralhar(a){var arr=a.slice();for(var i=arr.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=arr[i];arr[i]=arr[j];arr[j]=t;}return arr;}
+function mostrarTela(id){var t=document.querySelectorAll('.tela');for(var i=0;i<t.length;i++)t[i].classList.remove('ativa');document.getElementById(id).classList.add('ativa');window.scrollTo(0,0);}
+function calcE(a,t){var p=a/t,n=p>=.9?5:p>=.7?4:p>=.5?3:p>=.3?2:1,s='';for(var i=0;i<5;i++)s+=i<n?'⭐':'☆';return s;}
+function confete(){var e=['🎉','⭐','🌟','✨','🎊','🏅','🎈'];for(var i=0;i<12;i++){(function(d){setTimeout(function(){var el=document.createElement('span');el.className='conf';el.textContent=e[Math.floor(Math.random()*e.length)];el.style.left=Math.random()*95+'vw';el.style.animationDuration=(.8+Math.random()*.9)+'s';document.body.appendChild(el);setTimeout(function(){if(el.parentNode)el.parentNode.removeChild(el);},1800);},d);})(i*80);}}
 
-function mostrarTela(id){
-  var t=document.querySelectorAll('.tela');
-  for(var i=0;i<t.length;i++) t[i].classList.remove('ativa');
-  document.getElementById(id).classList.add('ativa');
-  window.scrollTo(0,0);
-}
-
-function calcE(a,t){var p=a/t,n=p>=.9?5:p>=.7?4:p>=.5?3:p>=.3?2:1,s='';for(var i=0;i<5;i++) s+=i<n?'⭐':'☆';return s;}
-
-function confete(){
-  var e=['🎉','⭐','🌟','✨','🎊','🏅','🎈'];
-  for(var i=0;i<12;i++){
-    (function(d){setTimeout(function(){
-      var el=document.createElement('span');el.className='conf';
-      el.textContent=e[Math.floor(Math.random()*e.length)];
-      el.style.left=Math.random()*95+'vw';
-      el.style.animationDuration=(.8+Math.random()*.9)+'s';
-      document.body.appendChild(el);
-      setTimeout(function(){if(el.parentNode)el.parentNode.removeChild(el);},1800);
-    },d);})(i*80);
-  }
-}
-
-/* ================================================================
-   QUIZ
-================================================================ */
-function iniciarTema(tema){
-  estado.tema=tema;
-  estado.perguntas=embaralhar(BANCO[tema].perguntas).slice(0,6);
-  estado.indice=0;estado.acertos=0;
-  mostrarTela('tela-quiz');
-  carregarPergunta();
-}
+/* QUIZ */
+function iniciarTema(tema){estado.tema=tema;estado.perguntas=embaralhar(BANCO[tema].perguntas).slice(0,6);estado.indice=0;estado.acertos=0;mostrarTela('tela-quiz');carregarPergunta();}
 
 function carregarPergunta(){
   estado.respondeu=false;
-  var p=estado.perguntas[estado.indice];
-  var total=estado.perguntas.length;
-  var d=BANCO[estado.tema];
-
+  var p=estado.perguntas[estado.indice],total=estado.perguntas.length,d=BANCO[estado.tema];
   document.getElementById('hdr-t').textContent=d.nome;
   document.getElementById('perg-e').textContent=d.emoji;
   document.getElementById('hdr-p').textContent='Questão '+(estado.indice+1)+' / '+total;
   document.getElementById('hdr-e').textContent=calcE(estado.acertos,total);
   document.getElementById('bar').style.width=((estado.indice/total)*100)+'%';
   document.getElementById('perg-t').textContent=p.texto;
-
-  var grid=document.getElementById('grid-o');
-  grid.innerHTML='';
-  /* Se opções forem longas, usar 1 coluna */
-  var usarCol1 = false;
-  for(var c=0;c<p.opcoes.length;c++){if(p.opcoes[c].length>25) usarCol1=true;}
-  grid.className = usarCol1 ? 'grid-o col1' : 'grid-o';
-
+  var grid=document.getElementById('grid-o');grid.innerHTML='';
+  var usarCol1=false;for(var c=0;c<p.opcoes.length;c++){if(p.opcoes[c].length>28)usarCol1=true;}
+  grid.className=usarCol1?'grid-o col1':'grid-o';
   for(var idx=0;idx<p.opcoes.length;idx++){
-    var btn=document.createElement('button');
-    btn.className='btn-o';
-    btn.textContent=p.opcoes[idx];
-    btn.setAttribute('data-idx',String(idx));
-    btn.setAttribute('onclick','window.responder('+idx+')');
+    var btn=document.createElement('button');btn.className='btn-o';btn.textContent=p.opcoes[idx];
+    btn.setAttribute('data-idx',String(idx));btn.setAttribute('onclick','window.responder('+idx+')');
     grid.appendChild(btn);
   }
-
-  var fb=document.getElementById('fb');
-  fb.style.display='none';fb.className='fb';
+  var fb=document.getElementById('fb');fb.style.display='none';fb.className='fb';
   document.getElementById('btn-px').style.display='none';
 }
 
 function responder(escolhido){
-  if(estado.respondeu) return;
-  estado.respondeu=true;
-  var p=estado.perguntas[estado.indice];
-  var certa=p.certa,acertou=(escolhido===certa);
-
+  if(estado.respondeu)return;estado.respondeu=true;
+  var p=estado.perguntas[estado.indice],certa=p.certa,acertou=(escolhido===certa);
   var btns=document.querySelectorAll('.btn-o');
-  for(var i=0;i<btns.length;i++){
-    btns[i].setAttribute('onclick','');
-    var bi=parseInt(btns[i].getAttribute('data-idx'));
-    if(bi===certa) btns[i].classList.add('certa');
-    else if(bi===escolhido&&!acertou) btns[i].classList.add('errada');
-  }
-
+  for(var i=0;i<btns.length;i++){btns[i].setAttribute('onclick','');var bi=parseInt(btns[i].getAttribute('data-idx'));if(bi===certa)btns[i].classList.add('certa');else if(bi===escolhido&&!acertou)btns[i].classList.add('errada');}
   var fb=document.getElementById('fb');
-  if(acertou){
-    estado.acertos++;
-    var m=['🎉 Muito bem!','⭐ Incrível!','🌟 Parabéns!','🏅 Certíssimo!','✨ Arrasou!'];
-    fb.textContent=m[Math.floor(Math.random()*m.length)];
-    fb.className='fb c';
-    confete();
-  } else {
-    fb.textContent='😊 Quase! A resposta certa está em verde!';
-    fb.className='fb e';
-  }
+  if(acertou){estado.acertos++;var m=['🎉 Muito bem!','⭐ Incrível!','🌟 Parabéns!','🏅 Certíssimo!','✨ Arrasou!'];fb.textContent=m[Math.floor(Math.random()*m.length)];fb.className='fb c';confete();}
+  else{fb.textContent='😊 Quase! A resposta certa está em verde!';fb.className='fb e';}
   fb.style.display='block';
   document.getElementById('hdr-e').textContent=calcE(estado.acertos,estado.perguntas.length);
-
-  var btnP=document.getElementById('btn-px');
-  btnP.style.display='block';
+  var btnP=document.getElementById('btn-px');btnP.style.display='block';
   btnP.textContent=(estado.indice===estado.perguntas.length-1)?'Ver resultado 🏆':'Próxima ➡️';
 }
 
-function avancar(){
-  estado.indice++;
-  if(estado.indice>=estado.perguntas.length) mostrarResultado();
-  else carregarPergunta();
-}
+function avancar(){estado.indice++;if(estado.indice>=estado.perguntas.length)mostrarResultado();else carregarPergunta();}
 
 function mostrarResultado(){
   var total=estado.perguntas.length,ac=estado.acertos,pct=ac/total;
   document.getElementById('ef').textContent=calcE(ac,total);
   document.getElementById('af').textContent=ac+' / '+total+' acertos!';
-  var ms=['Continue praticando! Vai melhorar! 💪','Bom trabalho! Pratique mais! 😊','Muito bem! Você está indo bem! 🌟','Excelente! Você é incrível! 🎉','PERFEITO! Você é um gênio! 🧠✨'];
+  var ms=['Continue praticando! 💪','Bom trabalho! 😊','Muito bem! 🌟','Excelente! 🎉','PERFEITO! 🧠✨'];
   document.getElementById('mf').textContent=ms[Math.min(Math.floor(pct*5),4)];
-  document.getElementById('bar').style.width='100%';
-  confete();
-  mostrarTela('tela-final');
+  document.getElementById('bar').style.width='100%';confete();mostrarTela('tela-final');
 }
 
-/* ================================================================
-   ESCRITA — CANVAS COM SUPORTE A APPLE PENCIL
-================================================================ */
+/* ESCRITA — CANVAS */
 var canvas,ctx,desenhando=false;
-
 function initCanvas(){
-  canvas=document.getElementById('canvas');
-  var wrap=canvas.parentElement;
-  /* Ajusta tamanho real do canvas ao tamanho CSS */
-  var rect=wrap.getBoundingClientRect();
-  canvas.width=rect.width-6; /* desconta borda */
-  canvas.height=200;
-  ctx=canvas.getContext('2d');
-  ctx.strokeStyle='#2C3E50';
-  ctx.lineWidth=3;
-  ctx.lineCap='round';
-  ctx.lineJoin='round';
+  canvas=document.getElementById('canvas');var wrap=canvas.parentElement;
+  var rect=wrap.getBoundingClientRect();canvas.width=rect.width-6;canvas.height=200;
+  ctx=canvas.getContext('2d');ctx.strokeStyle='#2C3E50';ctx.lineWidth=3;ctx.lineCap='round';ctx.lineJoin='round';
   desenharLinhas();
-
-  /* Eventos de toque — pointer events para compatibilidade com Apple Pencil */
-  canvas.addEventListener('pointerdown',function(e){
-    e.preventDefault();
-    desenhando=true;
-    var pos=getPos(e);
-    ctx.beginPath();
-    ctx.moveTo(pos.x,pos.y);
-  });
-  canvas.addEventListener('pointermove',function(e){
-    e.preventDefault();
-    if(!desenhando) return;
-    var pos=getPos(e);
-    ctx.lineTo(pos.x,pos.y);
-    ctx.stroke();
-  });
-  canvas.addEventListener('pointerup',function(e){
-    e.preventDefault();
-    desenhando=false;
-  });
-  canvas.addEventListener('pointerleave',function(e){
-    desenhando=false;
-  });
-  canvas.addEventListener('pointercancel',function(e){
-    desenhando=false;
-  });
-
-  /* Fallback touch events para navegadores que não suportam pointer events */
-  canvas.addEventListener('touchstart',function(e){
-    if(e.touches.length===1){
-      e.preventDefault();
-      desenhando=true;
-      var pos=getTouchPos(e);
-      ctx.beginPath();
-      ctx.moveTo(pos.x,pos.y);
-    }
-  },{passive:false});
-  canvas.addEventListener('touchmove',function(e){
-    if(!desenhando) return;
-    e.preventDefault();
-    var pos=getTouchPos(e);
-    ctx.lineTo(pos.x,pos.y);
-    ctx.stroke();
-  },{passive:false});
-  canvas.addEventListener('touchend',function(e){
-    desenhando=false;
-  });
+  canvas.addEventListener('pointerdown',function(e){e.preventDefault();desenhando=true;var pos=getPos(e);ctx.beginPath();ctx.moveTo(pos.x,pos.y);});
+  canvas.addEventListener('pointermove',function(e){e.preventDefault();if(!desenhando)return;var pos=getPos(e);ctx.lineTo(pos.x,pos.y);ctx.stroke();});
+  canvas.addEventListener('pointerup',function(e){e.preventDefault();desenhando=false;});
+  canvas.addEventListener('pointerleave',function(){desenhando=false;});
+  canvas.addEventListener('pointercancel',function(){desenhando=false;});
+  canvas.addEventListener('touchstart',function(e){if(e.touches.length===1){e.preventDefault();desenhando=true;var pos=getTouchPos(e);ctx.beginPath();ctx.moveTo(pos.x,pos.y);}},{passive:false});
+  canvas.addEventListener('touchmove',function(e){if(!desenhando)return;e.preventDefault();var pos=getTouchPos(e);ctx.lineTo(pos.x,pos.y);ctx.stroke();},{passive:false});
+  canvas.addEventListener('touchend',function(){desenhando=false;});
 }
+function getPos(e){var rect=canvas.getBoundingClientRect();return{x:e.clientX-rect.left,y:e.clientY-rect.top};}
+function getTouchPos(e){var rect=canvas.getBoundingClientRect();var t=e.touches[0];return{x:t.clientX-rect.left,y:t.clientY-rect.top};}
+function desenharLinhas(){ctx.save();ctx.strokeStyle='#E0D6C8';ctx.lineWidth=1;for(var y=50;y<200;y+=50){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(canvas.width,y);ctx.stroke();}ctx.strokeStyle='#F5C6C6';ctx.beginPath();ctx.moveTo(40,0);ctx.lineTo(40,200);ctx.stroke();ctx.restore();ctx.strokeStyle='#2C3E50';ctx.lineWidth=3;}
+function limparCanvas(){ctx.clearRect(0,0,canvas.width,canvas.height);desenharLinhas();}
+function abrirEscrita(){escPalavras=embaralhar(PALAVRAS).slice(0,10);escIdx=0;mostrarTela('tela-escrita');setTimeout(function(){initCanvas();mostrarPalavra();},100);}
+function mostrarPalavra(){var p=escPalavras[escIdx];document.getElementById('esc-palavra').textContent=p.palavra;document.getElementById('esc-dica2').textContent='💡 '+p.dica;document.getElementById('esc-prog').textContent='Palavra '+(escIdx+1)+' de '+escPalavras.length;limparCanvas();var btnP=document.getElementById('btn-esc-px');btnP.textContent=(escIdx===escPalavras.length-1)?'Finalizar ✅':'Próxima ✏️';}
+function proxPalavra(){escIdx++;if(escIdx>=escPalavras.length){confete();escIdx=0;mostrarTela('tela-menu');}else{mostrarPalavra();}}
 
-function getPos(e){
-  var rect=canvas.getBoundingClientRect();
-  return {x:e.clientX-rect.left,y:e.clientY-rect.top};
-}
-function getTouchPos(e){
-  var rect=canvas.getBoundingClientRect();
-  var t=e.touches[0];
-  return {x:t.clientX-rect.left,y:t.clientY-rect.top};
-}
-
-function desenharLinhas(){
-  /* Desenha linhas de caderno */
-  ctx.save();
-  ctx.strokeStyle='#E0D6C8';
-  ctx.lineWidth=1;
-  for(var y=50;y<200;y+=50){
-    ctx.beginPath();
-    ctx.moveTo(0,y);
-    ctx.lineTo(canvas.width,y);
-    ctx.stroke();
-  }
-  /* Linha vermelha de margem */
-  ctx.strokeStyle='#F5C6C6';
-  ctx.beginPath();
-  ctx.moveTo(40,0);
-  ctx.lineTo(40,200);
-  ctx.stroke();
-  ctx.restore();
-  /* Restaura estilo de escrita */
-  ctx.strokeStyle='#2C3E50';
-  ctx.lineWidth=3;
-}
-
-function limparCanvas(){
-  ctx.clearRect(0,0,canvas.width,canvas.height);
-  desenharLinhas();
-}
-
-function abrirEscrita(){
-  escPalavras=embaralhar(PALAVRAS).slice(0,10);
-  escIdx=0;
-  mostrarTela('tela-escrita');
-  setTimeout(function(){
-    initCanvas();
-    mostrarPalavra();
-  },100);
-}
-
-function mostrarPalavra(){
-  var p=escPalavras[escIdx];
-  document.getElementById('esc-palavra').textContent=p.palavra;
-  document.getElementById('esc-dica2').textContent='💡 Dica: '+p.dica;
-  document.getElementById('esc-prog').textContent='Palavra '+(escIdx+1)+' de '+escPalavras.length;
-  limparCanvas();
-  var btnP=document.getElementById('btn-esc-px');
-  btnP.textContent=(escIdx===escPalavras.length-1)?'Finalizar ✅':'Próxima ✏️';
-}
-
-function proxPalavra(){
-  escIdx++;
-  if(escIdx>=escPalavras.length){
-    confete();
-    escIdx=0;
-    mostrarTela('tela-menu');
-  } else {
-    mostrarPalavra();
-  }
-}
-
-/* ================================================================
-   EXPOR FUNÇÕES NO ESCOPO GLOBAL (window)
-   Necessário para onclick inline funcionar no iOS Safari
-================================================================ */
-window.iniciarTema   = iniciarTema;
-window.responder     = responder;
-window.avancar       = avancar;
-window.mostrarTela   = mostrarTela;
-window.abrirEscrita  = abrirEscrita;
-window.limparCanvas  = limparCanvas;
-window.proxPalavra   = proxPalavra;
+/* EXPOR NO WINDOW — obrigatório para onclick inline no iOS Safari */
+window.iniciarTema=iniciarTema;window.responder=responder;window.avancar=avancar;
+window.mostrarTela=mostrarTela;window.abrirEscrita=abrirEscrita;
+window.limparCanvas=limparCanvas;window.proxPalavra=proxPalavra;
 </script>
 </body>
 </html>
