@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Aprender é Divertido! - Julia 🌟</title>
+<title>Matemática Divertida - Julia 🌟</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap');
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
@@ -26,36 +26,31 @@ body{font-family:'Nunito','Arial Rounded MT Bold',Arial,sans-serif;background:va
 @keyframes fi{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 .logo{font-size:72px;display:block;text-align:center;animation:bounce 1.5s infinite}
-.titulo{font-size:2.3rem;font-weight:900;text-align:center;line-height:1.15;margin-top:6px;background:linear-gradient(135deg,var(--roxo),var(--rosa),var(--laranja));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.titulo{font-size:2.3rem;font-weight:900;text-align:center;line-height:1.15;margin-top:6px;background:linear-gradient(135deg,var(--azul),var(--roxo),var(--rosa));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .julia{font-size:1.15rem;font-weight:800;color:var(--rosa);text-align:center;margin-top:2px}
 .sub{font-size:1.1rem;font-weight:700;color:var(--laranja);text-align:center}
 .secao-label{font-size:1.05rem;font-weight:900;color:var(--roxo);text-align:left;width:100%;padding-left:6px;margin-top:6px}
 .grade{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%}
 .grade3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;width:100%}
-.card{background:var(--branco);border-radius:24px;padding:18px 12px;text-align:center;cursor:pointer;border:3px solid #D0D0D0;box-shadow:0 6px 20px var(--sombra);transition:transform .15s;font-family:inherit;width:100%}
+.card{background:var(--branco);border-radius:24px;padding:18px 12px;text-align:center;cursor:pointer;border:3px solid var(--azul);box-shadow:0 6px 20px var(--sombra);transition:transform .15s;font-family:inherit;width:100%;background:linear-gradient(145deg,#EBF5FF,#fff)}
 .card:active{transform:scale(.94)}
 .card-e{font-size:42px;display:block;margin-bottom:8px}
 .card-n{font-size:.92rem;font-weight:800;color:var(--texto);line-height:1.3}
 .card-sm{padding:14px 8px;border-radius:20px}
 .card-sm .card-e{font-size:32px;margin-bottom:4px}
 .card-sm .card-n{font-size:.8rem}
-.card-mat{border-color:var(--azul);background:linear-gradient(145deg,#EBF5FF,#fff)}
-.card[data-tema="agostino"],.card[data-cor="roxo"]{border-color:var(--roxo);background:linear-gradient(145deg,#F4ECF7,#fff)}
-.card[data-tema="rapunzel"],.card[data-cor="rosa"]{border-color:var(--rosa);background:linear-gradient(145deg,#FDE2F3,#fff)}
-.card[data-tema="mn"]{border-color:var(--azul);background:linear-gradient(145deg,#EBF5FF,#fff)}
-.card[data-tema="til"]{border-color:var(--laranja);background:linear-gradient(145deg,#FEF9E7,#fff)}
-.card[data-tema="maiusculas"]{border-color:var(--verde);background:linear-gradient(145deg,#E9F7EF,#fff)}
-.card[data-tema="expressoes"]{border-color:var(--vermelho);background:linear-gradient(145deg,#FDEDEC,#fff)}
-.card[data-tema="lendas"],.card[data-cor="amarelo"]{border-color:var(--amarelo);background:linear-gradient(145deg,#FEF9E7,#fff)}
-.card[data-tema="escrita"]{border-color:var(--roxo);background:linear-gradient(145deg,#F4ECF7,#fff)}
+.card-verde{border-color:var(--verde);background:linear-gradient(145deg,#E9F7EF,#fff)}
+.card-laranja{border-color:var(--laranja);background:linear-gradient(145deg,#FEF9E7,#fff)}
+.card-roxo{border-color:var(--roxo);background:linear-gradient(145deg,#F4ECF7,#fff)}
+.card-rosa{border-color:var(--rosa);background:linear-gradient(145deg,#FDE2F3,#fff)}
+/* LEITURA */
 .leitura-card{width:100%;background:var(--branco);border-radius:24px;padding:24px 22px;box-shadow:0 6px 24px var(--sombra);text-align:left}
-.leitura-titulo{font-size:1.5rem;font-weight:900;color:var(--roxo);text-align:center;margin-bottom:4px}
-.leitura-autor{font-size:.88rem;font-weight:700;color:#888;text-align:center;margin-bottom:14px}
+.leitura-titulo{font-size:1.5rem;font-weight:900;color:var(--azul);text-align:center;margin-bottom:4px}
 .leitura-subtitulo{font-size:1.15rem;font-weight:900;color:var(--rosa);margin:16px 0 8px}
 .leitura-txt{font-size:1.05rem;font-weight:600;line-height:1.7;color:var(--texto);margin-bottom:10px}
-.leitura-gloss{background:#FEF9E7;border-left:4px solid var(--laranja);border-radius:0 12px 12px 0;padding:10px 14px;margin:10px 0;font-size:.95rem;font-weight:700;color:#856404}
 .leitura-regra{background:#E8F8F5;border-left:4px solid var(--verde);border-radius:0 12px 12px 0;padding:10px 14px;margin:10px 0;font-size:.95rem;font-weight:700;color:#1E8449}
-.leitura-sep{border:none;border-top:2px dashed #E0D6C8;margin:18px 0}
+.leitura-gloss{background:#FEF9E7;border-left:4px solid var(--laranja);border-radius:0 12px 12px 0;padding:10px 14px;margin:10px 0;font-size:.95rem;font-weight:700;color:#856404}
+/* QUIZ */
 .hdr{width:100%;background:var(--branco);border-radius:20px;padding:12px 18px;box-shadow:0 4px 16px var(--sombra);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
 .hdr-t{font-size:1rem;font-weight:900}.hdr-p{font-size:.88rem;font-weight:700;color:#666}.hdr-e{font-size:1.2rem;letter-spacing:2px}
 .bar-w{width:100%;background:#E0E0E0;border-radius:10px;height:12px;overflow:hidden}
@@ -82,6 +77,7 @@ body{font-family:'Nunito','Arial Rounded MT Bold',Arial,sans-serif;background:va
 .bn{background:linear-gradient(135deg,var(--roxo),var(--rosa));color:#fff}
 .bv{align-self:flex-start;background:none;border:none;font-family:inherit;font-size:1rem;font-weight:800;color:var(--azul);cursor:pointer;padding:4px 0}
 .bv:active{opacity:.6}
+/* FINAL */
 .trofeu{font-size:90px;display:block;text-align:center;animation:bounce 1.2s infinite}
 .tf{font-size:2rem;font-weight:900;text-align:center;background:linear-gradient(135deg,var(--laranja),var(--rosa));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .ef{font-size:2.6rem;letter-spacing:4px;text-align:center;margin:6px 0}
@@ -90,24 +86,38 @@ body{font-family:'Nunito','Arial Rounded MT Bold',Arial,sans-serif;background:va
 .cr{width:100%;background:var(--branco);border-radius:24px;padding:28px 24px;box-shadow:0 6px 24px var(--sombra);display:flex;flex-direction:column;gap:6px}
 .conf{position:fixed;top:-10px;pointer-events:none;z-index:999;font-size:1.6rem;animation:cair 1.4s ease forwards}
 @keyframes cair{0%{transform:translateY(0) rotate(0deg);opacity:1}100%{transform:translateY(100vh) rotate(360deg);opacity:0}}
+/* ESCRITA */
 .escrita-area{width:100%;background:var(--branco);border-radius:24px;padding:20px;box-shadow:0 6px 24px var(--sombra);text-align:center}
-.escrita-palavra{font-size:2rem;font-weight:900;color:var(--roxo);margin-bottom:6px;letter-spacing:2px}
+.escrita-palavra{font-size:2rem;font-weight:900;color:var(--azul);margin-bottom:6px;letter-spacing:2px}
 .escrita-dica{font-size:.95rem;font-weight:700;color:#888;margin-bottom:12px}
 .canvas-wrap{position:relative;width:100%;max-width:500px;margin:0 auto;border:3px dashed #CCC;border-radius:16px;background:#FFFEF6;overflow:hidden}
-.canvas-wrap canvas{display:block;width:100%;height:400px}
+.canvas-wrap canvas{display:block;width:100%;height:350px}
 .btn-limpar{margin-top:10px;background:var(--vermelho);color:#fff;border:none;border-radius:14px;padding:12px 24px;font-family:inherit;font-size:1rem;font-weight:800;cursor:pointer}
-.btn-limpar:active{transform:scale(.93)}
 .escrita-progresso{font-size:1rem;font-weight:700;color:#666;margin-top:8px}
-.card-big{padding:28px 16px;border-width:4px}
-.card-big .card-e{font-size:56px;margin-bottom:10px}
-.card-big .card-n{font-size:1.15rem}
+/* ========== CDU GRID ========== */
+.cdu-card{width:100%;background:var(--branco);border-radius:24px;padding:24px 20px;box-shadow:0 6px 24px var(--sombra);text-align:center}
+.cdu-problema{font-size:1.15rem;font-weight:800;color:var(--texto);margin-bottom:16px;line-height:1.5}
+.cdu-wrap{display:inline-block;border:3px solid var(--azul);border-radius:16px;overflow:hidden;margin:0 auto}
+.cdu-header{display:flex;background:linear-gradient(135deg,var(--vermelho),#C0392B)}
+.cdu-header span{flex:1;min-width:56px;padding:8px 0;color:#fff;font-weight:900;font-size:1.1rem;text-align:center;border-right:2px solid rgba(255,255,255,.3)}
+.cdu-header span:last-child{border-right:none}
+.cdu-row{display:flex;border-top:2px solid #E0E0E0}
+.cdu-row:first-child{border-top:none}
+.cdu-sign{width:30px;display:flex;align-items:center;justify-content:center;font-size:1.3rem;font-weight:900;color:var(--azul)}
+.cdu-cell{flex:1;min-width:56px;padding:10px 0;font-size:1.5rem;font-weight:900;text-align:center;border-right:2px solid #E0E0E0;color:var(--texto)}
+.cdu-cell:last-child{border-right:none}
+.cdu-line{height:3px;background:var(--texto);margin:0}
+.cdu-input{flex:1;min-width:56px;padding:8px 0;font-size:1.5rem;font-weight:900;text-align:center;border:none;border-right:2px solid #E0E0E0;background:#FFFDE7;color:var(--azul);font-family:inherit;outline:none;-webkit-appearance:none;appearance:none}
+.cdu-input:last-child{border-right:none}
+.cdu-input:focus{background:#E8F8F5}
+.cdu-input.ok{background:#D5F5E3;color:var(--verde)}
+.cdu-input.erro{background:#FADBD8;color:var(--vermelho)}
+.cdu-progresso{font-size:1rem;font-weight:700;color:#666;margin-top:10px}
 @media(max-width:420px){
   .titulo{font-size:1.8rem}.card-e{font-size:36px}.card-n{font-size:.82rem}
   .perg-t{font-size:1.1rem}.btn-o{font-size:.98rem;min-height:58px;padding:12px 8px}
-  .escrita-palavra{font-size:1.6rem}
-  .leitura-txt{font-size:1rem}.leitura-titulo{font-size:1.3rem}
-  .card-sm .card-e{font-size:28px}.card-sm .card-n{font-size:.72rem}
-  .grade3{grid-template-columns:1fr 1fr 1fr;gap:8px}
+  .cdu-cell,.cdu-input{min-width:44px;font-size:1.2rem}
+  .cdu-header span{min-width:44px;font-size:.95rem}
 }
 </style>
 </head>
@@ -118,301 +128,164 @@ body{font-family:'Nunito','Arial Rounded MT Bold',Arial,sans-serif;background:va
 </div>
 <div id="app">
 
-<!-- ========== TELA SELEÇÃO DE MATÉRIA ========== -->
-<div id="tela-materias" class="tela ativa">
+<!-- ========== MENU PRINCIPAL ========== -->
+<div id="tela-menu" class="tela ativa">
   <div style="text-align:center;margin-top:8px">
-    <span class="logo">🌟</span>
-    <h1 class="titulo">Aprender é<br>Divertido!</h1>
+    <span class="logo">🧮</span>
+    <h1 class="titulo">Matemática<br>Divertida!</h1>
     <p class="julia">✨ para Julia ✨</p>
   </div>
-  <p class="secao-label">📚 Escolha a matéria</p>
-  <div class="grade">
-    <button class="card card-big" style="border-color:var(--roxo);background:linear-gradient(145deg,#F4ECF7,#fff)" onclick="window.mostrarTela('tela-menu')">
-      <span class="card-e">📖</span><span class="card-n">Português</span>
-    </button>
-    <button class="card card-big" style="border-color:var(--azul);background:linear-gradient(145deg,#EBF5FF,#fff)" onclick="window.mostrarTela('tela-menu-mat')">
-      <span class="card-e">🧮</span><span class="card-n">Matemática</span>
-    </button>
-  </div>
-</div>
-
-<!-- ========== TELA MENU PORTUGUÊS ========== -->
-<div id="tela-menu" class="tela">
-  <button class="bv" onclick="window.mostrarTela('tela-materias')">⬅️ Voltar</button>
-  <div style="text-align:center">
-    <span style="font-size:52px">📖</span>
-    <h1 class="titulo">Português</h1>
-  </div>
-  <p class="secao-label">📚 Ler os Textos</p>
-  <div class="grade3">
-    <button class="card card-sm" data-cor="roxo" onclick="window.mostrarTela('tela-ler-agostino')">
-      <span class="card-e">🏚️</span><span class="card-n">A Casa<br>Abandonada</span>
-    </button>
-    <button class="card card-sm" data-cor="rosa" onclick="window.mostrarTela('tela-ler-rapunzel')">
-      <span class="card-e">👸</span><span class="card-n">Rapunzel</span>
-    </button>
-    <button class="card card-sm" data-cor="amarelo" onclick="window.mostrarTela('tela-ler-lendas')">
-      <span class="card-e">🧙</span><span class="card-n">Lendas<br>Brasileiras</span>
-    </button>
-  </div>
-  <p class="secao-label">🎯 Atividades</p>
-  <div class="grade">
-    <button class="card" data-tema="agostino" onclick="window.iniciarTema('agostino')">
-      <span class="card-e">🏚️</span><span class="card-n">A Casa<br>Abandonada</span>
-    </button>
-    <button class="card" data-tema="rapunzel" onclick="window.iniciarTema('rapunzel')">
-      <span class="card-e">👸</span><span class="card-n">Rapunzel</span>
-    </button>
-    <button class="card" data-tema="mn" onclick="window.iniciarTema('mn')">
-      <span class="card-e">🔤</span><span class="card-n">M ou N?</span>
-    </button>
-    <button class="card" data-tema="til" onclick="window.iniciarTema('til')">
-      <span class="card-e">〰️</span><span class="card-n">Til (~)</span>
-    </button>
-    <button class="card" data-tema="maiusculas" onclick="window.iniciarTema('maiusculas')">
-      <span class="card-e">🔠</span><span class="card-n">Letra<br>Maiúscula</span>
-    </button>
-    <button class="card" data-tema="expressoes" onclick="window.iniciarTema('expressoes')">
-      <span class="card-e">💭</span><span class="card-n">O que<br>significa?</span>
-    </button>
-    <button class="card" data-tema="lendas" onclick="window.iniciarTema('lendas')">
-      <span class="card-e">🧙</span><span class="card-n">Lendas<br>Brasileiras</span>
-    </button>
-    <button class="card" data-tema="escrita" onclick="window.abrirEscrita('port')">
-      <span class="card-e">✍️</span><span class="card-n">Praticar<br>Escrita</span>
-    </button>
-  </div>
-</div>
-
-<!-- ========== LEITURA: AGOSTINO ========== -->
-<div id="tela-ler-agostino" class="tela">
-  <button class="bv" onclick="window.mostrarTela('tela-menu')">⬅️ Voltar ao Menu</button>
-  <div class="leitura-card">
-    <p class="leitura-titulo">🏚️ Era uma casa abandonada</p>
-    <p class="leitura-autor">Resumo do texto de Ana Rapha Nunes</p>
-    <p class="leitura-subtitulo">Parte 1</p>
-    <p class="leitura-txt">Numa rua de poeira e pedra, existia uma casa abandonada. Ela tinha janelas quebradas, portas bambas e o jardim parecia uma floresta. Ninguém entrava ali havia muitos anos.</p>
-    <div class="leitura-gloss">📘 <strong>Bambas</strong> = frouxas, que não estão firmes.</div>
-    <p class="leitura-txt">Mas a casa nem sempre foi assim. Ela já teve muitas histórias: uma artista de cinema morou ali, um casal de músicos tocava rock todo domingo, e num tempo ela virou até uma livraria, cheia de gente nos fins de semana.</p>
-    <p class="leitura-txt">Depois o tempo passou e a casa ficou vazia. Mistérios começaram a habitar aquelas paredes escuras. As crianças que brincavam na rua diziam que havia bruxas e monstros andando pelas tábuas de madeira, e por isso ninguém tinha coragem de entrar lá.</p>
-    <p class="leitura-txt">Agostino era um menino de olhos curiosos e sorriso tímido. Ele não era de muita conversa e guardava as palavras como se fossem um tesouro. Nas tardes sozinho, criava mundos imaginários.</p>
-    <p class="leitura-txt">Um dia de ventos fortes, Agostino viu uma sombra atrás das cortinas da casa abandonada. Era um menino, ainda mais menino que ele, usando chapéu e assobiando. Agostino ficou com vontade de ajudar o garoto, mas a coragem parecia tão distante. Então, ele ficou apenas espiando pela janela do seu quarto.</p>
-    <p class="leitura-txt">Na outra tarde, o menino do chapéu voltou à casa abandonada. Agostino sentiu que algo estava prestes a acontecer. Ele se vestiu de heroísmo, atravessou a rua e começou a entrar pé ante pé. Um barulho o fez recuar.</p>
-    <div class="leitura-gloss">📘 <strong>Recuar</strong> = andar para trás, dar um passo atrás.</div>
-    <p class="leitura-txt">"Quem está aí?" — gritou Agostino. Com medo, ele correu mais veloz que uma lebre e se escondeu no seu quarto. Ali estava são e salvo.</p>
-    <hr class="leitura-sep">
-    <p class="leitura-subtitulo">Parte 2</p>
-    <p class="leitura-txt">A curiosidade não largou Agostino. Ele resolveu tentar de novo. Colocou um chapéu, pensando que assim ganharia coragem, e foi...</p>
-    <p class="leitura-txt">Entrou devagar. Passou pela primeira sala, ouviu um ruído e subiu no sofá. Era apenas um rato, que parecia enorme de tão grande.</p>
-    <p class="leitura-txt">Agostino continuou andando. Quando atravessou o corredor, uma mão encostou no seu ombro. Ele gritou! Mas era uma menina de grandes tranças, que estava quase sussurrando nos seus ouvidos. Ela ficou com mais medo do que ele e fugiu apressada. Agostino também acabou fugindo para casa.</p>
-    <p class="leitura-txt">Mas o pensamento sobre a casa cheia de mistérios continuava. Então, outra visita chegou: Agostino viu anões entrando naquele lugar.</p>
-    <div class="leitura-gloss">📘 <strong>Encafifado</strong> = curioso e desconfiado.</div>
-    <p class="leitura-txt">O menino ficou encafifado. O medo rondava suas ideias, mas a curiosidade foi maior. Ele foi atrás dos anões. Quando estava chegando perto, eles sumiram na poeira. Mas deixaram algo cair pelo caminho...</p>
-    <p class="leitura-txt">Agostino se aproximou. Era um livro, amarelado pelo tempo. Ao abrir as primeiras páginas, não conseguiu mais parar de ler. Sentou-se numa poltrona velha e gasta, afastou as teias de aranha e se entregou ao mistério do menino detetive.</p>
-    <div class="leitura-gloss">📘 <strong>Puída</strong> = gasta, bastante usada.</div>
-    <p class="leitura-txt">Só saiu de lá quando já era noite. Voltou no dia seguinte, e no outro, e no outro. Quando terminou o livro do menino detetive, fez uma nova descoberta: um baú cheio de livros antigos! Talvez fossem da época em que aquele lugar era uma livraria.</p>
-    <p class="leitura-txt">E assim, Agostino percebeu que a casa abandonada realmente tinha bruxas, monstros e personagens horripilantes. Todos estavam dentro das páginas dos livros! 📚</p>
-    <div class="leitura-gloss">📘 <strong>Horripilantes</strong> = assustadores, que provocam medo.</div>
-    <div class="leitura-regra">💡 Esse tipo de texto é um <strong>conto de mistério</strong>: uma história com fatos estranhos que nos deixam curiosos, e o mistério só se revela no final!</div>
-  </div>
-  <button class="ba bp" style="width:100%" onclick="window.iniciarTema('agostino')">🎯 Fazer Atividade</button>
-  <button class="ba bm" style="width:100%" onclick="window.mostrarTela('tela-menu')">🏠 Voltar ao Menu</button>
-</div>
-
-<!-- ========== LEITURA: RAPUNZEL ========== -->
-<div id="tela-ler-rapunzel" class="tela">
-  <button class="bv" onclick="window.mostrarTela('tela-menu')">⬅️ Voltar ao Menu</button>
-  <div class="leitura-card">
-    <p class="leitura-titulo">👸 Rapunzel</p>
-    <p class="leitura-autor">Resumo do conto dos Irmãos Grimm</p>
-    <p class="leitura-txt">Era uma vez um casal que morava perto da fazenda de uma bruxa. A esposa estava grávida e disse ao marido que queria muito comer beterrabas.</p>
-    <p class="leitura-txt">O marido, para agradar a esposa, foi até a horta da bruxa colher beterrabas. Ele fez isso várias noites. Até que uma noite, a bruxa o pegou de surpresa e impôs uma condição:</p>
-    <p class="leitura-txt">— Sirva-se à vontade! Mas há um preço: quando o bebê nascer, você terá que entregá-lo a mim!</p>
-    <p class="leitura-txt">Os meses se passaram. O bebê nasceu e o homem foi obrigado a cumprir o acordo. A bruxa levou a criança, deu a ela o nome de Rapunzel e a trancou no alto de uma torre escondida na floresta.</p>
-    <p class="leitura-txt">Os anos foram passando. Rapunzel aprendeu a cantar com os pássaros, que eram seus únicos amigos. Sua voz era tão doce que um príncipe, ao passear pela floresta, ficou encantado. Ele observou como a bruxa fazia para subir na torre e descobriu o segredo:</p>
-    <p class="leitura-txt">— Rapunzel, jogue suas tranças! — gritava a feiticeira. E a jovem deixava cair suas longas tranças douradas pela janela.</p>
-    <p class="leitura-txt">Quando a bruxa foi embora, o príncipe repetiu o chamado. Rapunzel jogou as tranças e ele subiu. Quando os dois se viram, sentiram o coração bater mais forte e se apaixonaram. A partir desse dia, o príncipe visitava Rapunzel todos os dias.</p>
-    <p class="leitura-txt">A bruxa desconfiou e resolveu espioná-la. Ao descobrir as visitas do príncipe, ficou furiosa: pegou uma tesoura, cortou as tranças de Rapunzel e levou-a para um lugar longe, abandonando-a na floresta.</p>
-    <p class="leitura-txt">De volta à torre, a bruxa amarrou as tranças num gancho e esperou o príncipe. Quando ele chegou e subiu, encontrou a bruxa, que disse: "Você nunca mais a encontrará!"</p>
-    <p class="leitura-txt">A bruxa empurrou o príncipe da torre. Ele caiu sobre espinhos que feriram seus olhos, e ele não conseguia mais enxergar. Mesmo cego, ele vagou pela floresta procurando Rapunzel.</p>
-    <p class="leitura-txt">Certa tarde, escutou um canto familiar. Seguindo a doce melodia, encontrou Rapunzel. Ela o abraçou e, ao vê-lo naquele estado, começou a chorar. As lágrimas de Rapunzel caíram sobre os olhos dele e, como mágica, devolveram a sua visão!</p>
-    <p class="leitura-txt">Os dois partiram juntos para o reino do príncipe, se casaram e foram felizes para sempre. E a bruxa? Nunca mais foi vista. 🏰</p>
-    <div class="leitura-regra">💡 Rapunzel é um <strong>conto de fadas</strong>: começa com "Era uma vez" e tem magia, vilão e final feliz!</div>
-  </div>
-  <button class="ba bp" style="width:100%" onclick="window.iniciarTema('rapunzel')">🎯 Fazer Atividade</button>
-  <button class="ba bm" style="width:100%" onclick="window.mostrarTela('tela-menu')">🏠 Voltar ao Menu</button>
-</div>
-
-<!-- ========== LEITURA: LENDAS ========== -->
-<div id="tela-ler-lendas" class="tela">
-  <button class="bv" onclick="window.mostrarTela('tela-menu')">⬅️ Voltar ao Menu</button>
-  <div class="leitura-card">
-    <p class="leitura-titulo">🧙 Lendas Brasileiras</p>
-    <p class="leitura-autor">Resumo das lendas do folclore</p>
-    <p class="leitura-subtitulo">🎩 Saci-Pererê</p>
-    <p class="leitura-txt">O Saci-Pererê é um menino travesso que tem apenas uma perna. Ele adora aprontar: entra nas casas, apaga a chama dos fogões e faz as pessoas se perderem nas estradas.</p>
-    <p class="leitura-txt">Pulando numa perna só, ele consegue ser muito rápido. Seus poderes vêm de um gorro vermelho, que faz ele ficar invisível e soltar um assobio que parece vir de lugar nenhum! 🎩</p>
-    <hr class="leitura-sep">
-    <p class="leitura-subtitulo">🔥 Boitatá</p>
-    <p class="leitura-txt">Pelos campos e matas brasileiras, dizem que existe uma cobra de fogo chamada Boitatá. Ela se transforma em brasa para queimar quem tenta incendiar as florestas.</p>
-    <p class="leitura-txt">Segundo a lenda, ela seria a única sobrevivente de um grande dilúvio que cobriu a Terra. 🐍🔥</p>
-    <div class="leitura-gloss">📘 <strong>Dilúvio</strong> = uma enchente causada por chuvas tão fortes que acabam cobrindo grandes áreas.</div>
-    <hr class="leitura-sep">
-    <p class="leitura-subtitulo">🐊 Cuca</p>
-    <p class="leitura-txt">A Cuca é o bicho-papão mais conhecido do folclore brasileiro. Ela tem cabeça de jacaré e aparece à noite para levar embora crianças mal-educadas.</p>
-    <p class="leitura-txt">Dizem que a Cuca dorme apenas uma noite a cada sete anos! E quando fica brava, solta um grito que pode ser ouvido de muito longe. 🐊😱</p>
-    <div class="leitura-regra">💡 Lendas são histórias passadas de geração em geração para explicar coisas misteriosas da natureza ou assustar as pessoas!</div>
-  </div>
-  <button class="ba bp" style="width:100%" onclick="window.iniciarTema('lendas')">🎯 Fazer Atividade</button>
-  <button class="ba bm" style="width:100%" onclick="window.mostrarTela('tela-menu')">🏠 Voltar ao Menu</button>
-</div>
-
-<!-- ========== TELA MENU MATEMÁTICA ========== -->
-<div id="tela-menu-mat" class="tela">
-  <button class="bv" onclick="window.mostrarTela('tela-materias')">⬅️ Voltar</button>
-  <div style="text-align:center">
-    <span style="font-size:52px">🧮</span>
-    <h1 class="titulo">Matemática</h1>
-    <p class="sub">Unidade 4 — Números de 0 a 499</p>
-  </div>
+  <p class="sub">Unidade 4 — Números de 0 a 499</p>
 
   <p class="secao-label">📚 Aprender</p>
   <div class="grade">
-    <button class="card card-mat" onclick="window.mostrarTela('tela-ler-dezenas')">
+    <button class="card card-verde" onclick="window.mostrarTela('tela-ler-dezenas')">
       <span class="card-e">🔢</span><span class="card-n">Dezenas e<br>Unidades</span>
     </button>
-    <button class="card card-mat" onclick="window.mostrarTela('tela-ler-centenas')">
+    <button class="card card-verde" onclick="window.mostrarTela('tela-ler-centenas')">
       <span class="card-e">🏗️</span><span class="card-n">Centenas</span>
     </button>
   </div>
 
   <p class="secao-label">🎯 Atividades</p>
   <div class="grade">
-    <button class="card card-mat" onclick="window.iniciarTema('mat_dezenas')">
+    <button class="card" onclick="window.iniciarTema('dezenas')">
       <span class="card-e">🔢</span><span class="card-n">Dezenas e<br>Unidades</span>
     </button>
-    <button class="card card-mat" onclick="window.iniciarTema('mat_extenso')">
+    <button class="card" onclick="window.iniciarTema('extenso')">
       <span class="card-e">📝</span><span class="card-n">Por<br>Extenso</span>
     </button>
-    <button class="card card-mat" onclick="window.iniciarTema('mat_adicao')">
+    <button class="card" onclick="window.iniciarTema('adicao')">
       <span class="card-e">➕</span><span class="card-n">Adição</span>
     </button>
-    <button class="card card-mat" onclick="window.iniciarTema('mat_subtracao')">
+    <button class="card" onclick="window.iniciarTema('subtracao')">
       <span class="card-e">➖</span><span class="card-n">Subtração</span>
     </button>
-    <button class="card card-mat" onclick="window.iniciarTema('mat_centenas')">
+    <button class="card" onclick="window.iniciarTema('centenas')">
       <span class="card-e">🏗️</span><span class="card-n">Centenas</span>
     </button>
-    <button class="card card-mat" onclick="window.iniciarTema('mat_sequencias')">
+    <button class="card" onclick="window.iniciarTema('sequencias')">
       <span class="card-e">🔄</span><span class="card-n">Sequências</span>
     </button>
-    <button class="card card-mat" onclick="window.iniciarTema('mat_enigmas')">
-      <span class="card-e">🧩</span><span class="card-n">Enigmas<br>Numéricos</span>
+    <button class="card" onclick="window.iniciarTema('enigmas')">
+      <span class="card-e">🧩</span><span class="card-n">Enigmas</span>
     </button>
-    <button class="card card-mat" onclick="window.iniciarTema('mat_antecessor')">
+    <button class="card" onclick="window.iniciarTema('antecessor')">
       <span class="card-e">⏮️</span><span class="card-n">Antecessor<br>e Sucessor</span>
     </button>
-    <button class="card card-mat" onclick="window.abrirEscrita('mat')">
-      <span class="card-e">✍️</span><span class="card-n">Escrever<br>Números</span>
+  </div>
+
+  <p class="secao-label">✍️ Praticar</p>
+  <div class="grade">
+    <button class="card card-laranja" onclick="window.abrirCDU()">
+      <span class="card-e">📊</span><span class="card-n">Conta<br>Armada</span>
+    </button>
+    <button class="card card-roxo" onclick="window.abrirEscrita()">
+      <span class="card-e">✏️</span><span class="card-n">Escrever<br>Números</span>
     </button>
   </div>
 </div>
 
-<!-- ========== LEITURA: DEZENAS E UNIDADES ========== -->
+<!-- ========== LEITURA: DEZENAS ========== -->
 <div id="tela-ler-dezenas" class="tela">
-  <button class="bv" onclick="window.mostrarTela('tela-menu-mat')">⬅️ Voltar</button>
+  <button class="bv" onclick="window.mostrarTela('tela-menu')">⬅️ Voltar</button>
   <div class="leitura-card">
     <p class="leitura-titulo">🔢 Dezenas e Unidades</p>
-    <p class="leitura-autor">Como os números se organizam</p>
     <p class="leitura-subtitulo">O que é uma unidade?</p>
-    <p class="leitura-txt">Uma <strong>unidade</strong> é cada objeto sozinho. Se você tem 1 lápis, tem 1 unidade. Se tem 7 lápis, tem 7 unidades.</p>
+    <p class="leitura-txt">Uma <strong>unidade</strong> é cada objeto sozinho. 1 lápis = 1 unidade. 7 lápis = 7 unidades.</p>
     <p class="leitura-subtitulo">O que é uma dezena?</p>
-    <p class="leitura-txt">Quando juntamos <strong>10 unidades</strong>, formamos <strong>1 dezena</strong>! É como um pacotinho de 10.</p>
+    <p class="leitura-txt">Quando juntamos <strong>10 unidades</strong>, formamos <strong>1 dezena</strong>!</p>
     <div class="leitura-regra">💡 10 unidades = 1 dezena</div>
     <p class="leitura-subtitulo">Exemplo: o número 35</p>
-    <p class="leitura-txt">O número 35 é formado por <strong>3 dezenas</strong> e <strong>5 unidades</strong>.</p>
-    <p class="leitura-txt">Podemos decompor: 35 = 30 + 5</p>
-    <p class="leitura-txt">Ou ainda: 35 = 10 + 10 + 10 + 5</p>
-    <div class="leitura-gloss">📘 <strong>Decompor</strong> = separar o número em partes menores.</div>
-    <p class="leitura-subtitulo">Forma por extenso</p>
-    <p class="leitura-txt">Escrever o número usando palavras:</p>
-    <p class="leitura-txt">35 → <strong>trinta e cinco</strong></p>
-    <p class="leitura-txt">67 → <strong>sessenta e sete</strong></p>
-    <p class="leitura-txt">84 → <strong>oitenta e quatro</strong></p>
+    <p class="leitura-txt"><strong>3 dezenas</strong> e <strong>5 unidades</strong> = 30 + 5 = 35</p>
+    <p class="leitura-txt">Por extenso: <strong>trinta e cinco</strong></p>
+    <p class="leitura-subtitulo">Forma decomposta</p>
+    <p class="leitura-txt">67 = 60 + 7 → <strong>sessenta e sete</strong></p>
+    <p class="leitura-txt">84 = 80 + 4 → <strong>oitenta e quatro</strong></p>
   </div>
-  <button class="ba bp" style="width:100%" onclick="window.iniciarTema('mat_dezenas')">🎯 Fazer Atividade</button>
-  <button class="ba bm" style="width:100%" onclick="window.mostrarTela('tela-menu-mat')">🏠 Voltar</button>
+  <button class="ba bp" style="width:100%" onclick="window.iniciarTema('dezenas')">🎯 Atividade</button>
+  <button class="ba bm" style="width:100%" onclick="window.mostrarTela('tela-menu')">🏠 Menu</button>
 </div>
 
 <!-- ========== LEITURA: CENTENAS ========== -->
 <div id="tela-ler-centenas" class="tela">
-  <button class="bv" onclick="window.mostrarTela('tela-menu-mat')">⬅️ Voltar</button>
+  <button class="bv" onclick="window.mostrarTela('tela-menu')">⬅️ Voltar</button>
   <div class="leitura-card">
     <p class="leitura-titulo">🏗️ Centenas</p>
-    <p class="leitura-autor">Números de 100 a 499</p>
     <p class="leitura-subtitulo">O que é uma centena?</p>
-    <p class="leitura-txt">Quando juntamos <strong>10 dezenas</strong> (ou 100 unidades), formamos <strong>1 centena</strong>!</p>
-    <div class="leitura-regra">💡 10 dezenas = 1 centena = 100 unidades</div>
-    <p class="leitura-subtitulo">Centenas, Dezenas e Unidades</p>
-    <p class="leitura-txt">O número <strong>428</strong> é formado por:</p>
-    <p class="leitura-txt">• 4 centenas (400)</p>
-    <p class="leitura-txt">• 2 dezenas (20)</p>
-    <p class="leitura-txt">• 8 unidades (8)</p>
-    <p class="leitura-txt">Decompondo: 428 = 400 + 20 + 8</p>
+    <p class="leitura-txt"><strong>10 dezenas</strong> = <strong>1 centena</strong> = <strong>100 unidades</strong></p>
+    <div class="leitura-regra">💡 1 centena = 10 dezenas = 100 unidades</div>
+    <p class="leitura-subtitulo">Exemplo: 428</p>
+    <p class="leitura-txt">4 centenas + 2 dezenas + 8 unidades</p>
+    <p class="leitura-txt">400 + 20 + 8 = 428</p>
     <p class="leitura-subtitulo">Valor posicional</p>
-    <p class="leitura-txt">O algarismo <strong>4</strong> pode ter valores diferentes dependendo da posição:</p>
-    <p class="leitura-txt">Em <strong>245</strong>, o 4 está na posição das dezenas → vale <strong>40</strong></p>
-    <p class="leitura-txt">Em <strong>412</strong>, o 4 está na posição das centenas → vale <strong>400</strong></p>
-    <div class="leitura-gloss">📘 <strong>Valor posicional</strong> = o valor do algarismo depende do lugar que ele ocupa no número.</div>
+    <p class="leitura-txt">Em <strong>245</strong>: o 4 vale <strong>40</strong> (dezenas)</p>
+    <p class="leitura-txt">Em <strong>412</strong>: o 4 vale <strong>400</strong> (centenas)</p>
+    <div class="leitura-gloss">📘 O valor depende da posição!</div>
     <p class="leitura-subtitulo">Antecessor e Sucessor</p>
-    <p class="leitura-txt"><strong>Antecessor</strong> = o número que vem antes (−1)</p>
-    <p class="leitura-txt"><strong>Sucessor</strong> = o número que vem depois (+1)</p>
-    <p class="leitura-txt">Exemplo: antecessor de 295 é <strong>294</strong>, sucessor é <strong>296</strong>.</p>
+    <p class="leitura-txt"><strong>Antecessor</strong> = número anterior (−1)</p>
+    <p class="leitura-txt"><strong>Sucessor</strong> = número seguinte (+1)</p>
   </div>
-  <button class="ba bp" style="width:100%" onclick="window.iniciarTema('mat_centenas')">🎯 Fazer Atividade</button>
-  <button class="ba bm" style="width:100%" onclick="window.mostrarTela('tela-menu-mat')">🏠 Voltar</button>
+  <button class="ba bp" style="width:100%" onclick="window.iniciarTema('centenas')">🎯 Atividade</button>
+  <button class="ba bm" style="width:100%" onclick="window.mostrarTela('tela-menu')">🏠 Menu</button>
 </div>
 
-<!-- ========== TELA QUIZ (compartilhada) ========== -->
+<!-- ========== QUIZ ========== -->
 <div id="tela-quiz" class="tela">
   <div class="hdr">
-    <span id="hdr-t" class="hdr-t">📖</span>
+    <span id="hdr-t" class="hdr-t">🧮</span>
     <span id="hdr-p" class="hdr-p">1 / 6</span>
     <span id="hdr-e" class="hdr-e">☆☆☆☆☆</span>
   </div>
   <div class="bar-w"><div id="bar" class="bar"></div></div>
   <div class="cperg">
-    <span id="perg-e" class="perg-e">📖</span>
+    <span id="perg-e" class="perg-e">🧮</span>
     <p id="perg-t" class="perg-t">...</p>
   </div>
   <div id="grid-o" class="grid-o"></div>
   <div id="fb" class="fb"></div>
   <div class="abtn">
-    <button id="btn-mq" class="ba bm" onclick="window.voltarMenu()">🏠 Menu</button>
+    <button class="ba bm" onclick="window.mostrarTela('tela-menu')">🏠 Menu</button>
     <button id="btn-px" class="ba bp" style="display:none" onclick="window.avancar()">Próxima ➡️</button>
   </div>
 </div>
 
-<!-- ========== TELA ESCRITA (compartilhada) ========== -->
+<!-- ========== CONTA ARMADA (CDU) ========== -->
+<div id="tela-cdu" class="tela">
+  <button class="bv" onclick="window.mostrarTela('tela-menu')">⬅️ Voltar</button>
+  <div class="cdu-card">
+    <p style="font-size:1.2rem;font-weight:900;color:var(--azul);margin-bottom:6px">📊 Conta Armada</p>
+    <p id="cdu-problema" class="cdu-problema">...</p>
+    <div id="cdu-grid" style="display:flex;justify-content:center"></div>
+    <div id="cdu-fb" class="fb" style="margin-top:14px"></div>
+    <p id="cdu-prog" class="cdu-progresso">Conta 1 de 8</p>
+  </div>
+  <div class="abtn">
+    <button class="ba bm" onclick="window.mostrarTela('tela-menu')">🏠 Menu</button>
+    <button id="btn-cdu-ver" class="ba bp" onclick="window.verificarCDU()">✅ Verificar</button>
+    <button id="btn-cdu-px" class="ba bp" style="display:none" onclick="window.proxCDU()">Próxima ➡️</button>
+  </div>
+</div>
+
+<!-- ========== ESCRITA ========== -->
 <div id="tela-escrita" class="tela">
-  <button class="bv" onclick="window.voltarMenu()">⬅️ Voltar ao Menu</button>
+  <button class="bv" onclick="window.mostrarTela('tela-menu')">⬅️ Voltar</button>
   <div class="escrita-area">
-    <p id="esc-titulo" style="font-size:1.1rem;font-weight:900;color:var(--roxo);margin-bottom:4px">✍️ Praticar Escrita</p>
+    <p style="font-size:1.1rem;font-weight:900;color:var(--azul);margin-bottom:4px">✏️ Escrever Números</p>
     <p class="escrita-dica">Escreva a palavra com a caneta!</p>
-    <p id="esc-palavra" class="escrita-palavra">Campo</p>
-    <p id="esc-dica2" class="escrita-dica">Use letra cursiva 📝</p>
-    <div id="letras-modelo" style="display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:10px 0;padding:8px;background:#F4ECF7;border-radius:14px;border:2px solid #D7BDE2"></div>
+    <p id="esc-palavra" class="escrita-palavra">Trinta</p>
+    <p id="esc-dica2" class="escrita-dica">💡 30 — três dezenas!</p>
     <div class="canvas-wrap"><canvas id="canvas"></canvas></div>
     <button class="btn-limpar" onclick="window.limparCanvas()">🗑️ Apagar</button>
     <p id="esc-prog" class="escrita-progresso">Palavra 1 de 10</p>
   </div>
   <div class="abtn">
-    <button class="ba bm" onclick="window.voltarMenu()">🏠 Menu</button>
+    <button class="ba bm" onclick="window.mostrarTela('tela-menu')">🏠 Menu</button>
     <button id="btn-esc-px" class="ba bp" onclick="window.proxPalavra()">Próxima ✏️</button>
   </div>
 </div>
 
-<!-- ========== TELA FINAL ========== -->
+<!-- ========== FINAL ========== -->
 <div id="tela-final" class="tela">
   <div class="cr">
     <span class="trofeu">🏆</span>
@@ -422,97 +295,19 @@ body{font-family:'Nunito','Arial Rounded MT Bold',Arial,sans-serif;background:va
     <p id="mf" class="mf">Você é incrível! 🎉</p>
   </div>
   <div class="abtn" style="max-width:700px;width:100%">
-    <button class="ba bn" onclick="window.iniciarTema(estado.tema)">🔄 Jogar de Novo</button>
-    <button class="ba bm" onclick="window.voltarMenu()">🏠 Menu</button>
+    <button id="btn-replay" class="ba bn" onclick="window.replay()">🔄 Jogar de Novo</button>
+    <button class="ba bm" onclick="window.mostrarTela('tela-menu')">🏠 Menu</button>
   </div>
 </div>
 
-</div><!-- /app -->
+</div>
 
 <script>
 /* ================================================================
-   BANCO DE PERGUNTAS — PORTUGUÊS
+   BANCO DE PERGUNTAS
 ================================================================ */
 var BANCO={
-agostino:{nome:'🏚️ A Casa Abandonada',emoji:'🏚️',materia:'port',perguntas:[
-  {texto:'O que havia na rua de poeira e pedra?',opcoes:['Um castelo','Uma casa abandonada','Uma escola','Um parque'],certa:1},
-  {texto:'Como era a casa abandonada?',opcoes:['Janelas quebradas e portas bambas','Paredes brancas e jardim bonito','Quintal cheio de estátuas','Porta nova e janelas grandes'],certa:0},
-  {texto:'O jardim da casa parecia com:',opcoes:['Um campo de flores','Uma piscina','Uma floresta','Um quintal limpo'],certa:2},
-  {texto:'A casa sempre foi abandonada?',opcoes:['Sim, sempre','Não, já foi cenário de histórias e até livraria','Sim, ninguém nunca morou lá','Não, sempre foi uma escola'],certa:1},
-  {texto:'Por que as crianças não entravam na casa?',opcoes:['Porque era longe','Porque tinha um cachorro','Diziam que havia bruxas e monstros','Porque estava trancada'],certa:2},
-  {texto:'Como era Agostino?',opcoes:['Corajoso e falante','Curioso e sorriso tímido','Usava sempre chapéu','Alto e forte'],certa:1},
-  {texto:'O que Agostino viu atrás da cortina?',opcoes:['Um gato','Uma bruxa','Um menino','Uma menina'],certa:2},
-  {texto:'Por que Agostino subiu no sofá?',opcoes:['Para ver pela janela','Ouviu um ruído e viu um rato','Porque queria dormir','Porque o chão estava molhado'],certa:1},
-  {texto:'Qual foi a grande descoberta\nde Agostino no fim da história?',opcoes:['Um tesouro de ouro','Um baú cheio de livros','Uma porta secreta','Um animal escondido'],certa:1},
-  {texto:'As bruxas e monstros da casa\nestavam onde?',opcoes:['No porão','No jardim','Dentro das páginas dos livros','No telhado'],certa:2},
-  {texto:'O que "bambas" significa?',opcoes:['Fortes e firmes','Novas','Frouxas, não estão firmes','Coloridas'],certa:2}
-]},
-rapunzel:{nome:'👸 Rapunzel',emoji:'👸',materia:'port',perguntas:[
-  {texto:'O que a mulher grávida queria comer?',opcoes:['Maçãs','Beterrabas','Cenouras','Morangos'],certa:1},
-  {texto:'Qual foi a condição da bruxa?',opcoes:['Plantar beterrabas','Cuidar da horta','Entregar o bebê quando nascesse','Nunca mais voltar'],certa:2},
-  {texto:'O que a bruxa fez com o bebê?',opcoes:['Deu para outra família','Trancou numa torre na floresta','Mandou para longe','Deixou na horta'],certa:1},
-  {texto:'Quem eram os únicos amigos\nde Rapunzel?',opcoes:['Os coelhos','As borboletas','Os pássaros','Os peixes'],certa:2},
-  {texto:'Como o príncipe descobriu\ncomo subir na torre?',opcoes:['Viu a bruxa passeando','Viu que cortaram as tranças','Observou como a bruxa fazia','Percebeu os passarinhos entrando'],certa:2},
-  {texto:'O que a bruxa fez quando\ndescobriu as visitas do príncipe?',opcoes:['Não fez nada','Cortou as tranças de Rapunzel\ne abandonou na floresta','Convidou para jantar','Fugiu da torre'],certa:1},
-  {texto:'O que aconteceu quando o príncipe\ncaiu da torre?',opcoes:['Ele se machucou na perna','Espinhos feriram seus olhos','Ele caiu na água','Nada aconteceu'],certa:1},
-  {texto:'O que as lágrimas de Rapunzel\nfizeram?',opcoes:['Criaram um rio','Devolveram a visão do príncipe','Derreteram a torre','Chamaram a bruxa'],certa:1},
-  {texto:'Como terminou a história?',opcoes:['A bruxa venceu','Rapunzel ficou na floresta','O príncipe e Rapunzel se casaram\ne foram felizes','Todos ficaram tristes'],certa:2}
-]},
-mn:{nome:'🔤 M ou N?',emoji:'🔤',materia:'port',perguntas:[
-  {texto:'Complete: CA__PO',opcoes:['M → CAMPO','N → CANPO'],certa:0},
-  {texto:'Complete: BO__BA',opcoes:['N → BONBA','M → BOMBA'],certa:1},
-  {texto:'Complete: LO__GO',opcoes:['M → LOMGO','N → LONGO'],certa:1},
-  {texto:'Complete: TE__TO',opcoes:['N → TENTO','M → TEMTO'],certa:0},
-  {texto:'Complete: TA__PA',opcoes:['N → TANPA','M → TAMPA'],certa:1},
-  {texto:'Complete: SE__TE',opcoes:['M → SEMTE','N → SENTE'],certa:1},
-  {texto:'A regra diz:\nAntes de P e B usamos:',opcoes:['Sempre N','Sempre M'],certa:1},
-  {texto:'Complete: LÂ__PADA',opcoes:['N → LÂNPADA','M → LÂMPADA'],certa:1},
-  {texto:'Complete: SO__BRA',opcoes:['N → SONBRA','M → SOMBRA'],certa:1}
-]},
-til:{nome:'〰️ Til (~)',emoji:'〰️',materia:'port',perguntas:[
-  {texto:'Qual palavra tem til?',opcoes:['CAMPO','BALÃO','SOMBRA','BOMBA'],certa:1},
-  {texto:'O til (~) aparece sobre quais letras?',opcoes:['Sobre M e N','Sobre as vogais A e O','Sobre qualquer letra','Sobre as consoantes'],certa:1},
-  {texto:'Para que serve o til (~)?',opcoes:['Marcar som nasal','Marcar som forte','Deixar a palavra bonita','Separar sílabas'],certa:0},
-  {texto:'Qual palavra precisa de til?',opcoes:['BOMBOM','MAMAO → MAMÃO','PLANTA','LONGO'],certa:1},
-  {texto:'Qual tem som nasal com til?',opcoes:['SOMBRA','CAMPO','CORAÇÃO','TEMPO'],certa:2},
-  {texto:'Qual palavra NÃO tem til?',opcoes:['ESCURIDÃO','CLARIDADE','ILUMINAÇÃO','BALÃO'],certa:1},
-  {texto:'VULCÃO tem til sobre qual letra?',opcoes:['U','A','A → Ã','C'],certa:2},
-  {texto:'Qual grupo de palavras tem til?',opcoes:['Campo, bomba, sente','Balão, mamão, melão','Lombo, manta, sombra','Tampa, longo, planta'],certa:1}
-]},
-maiusculas:{nome:'🔠 Letra Maiúscula',emoji:'🔠',materia:'port',perguntas:[
-  {texto:'Quando usamos letra maiúscula?',opcoes:['No meio da frase','No início da frase e em nomes próprios','Apenas em nomes de animais','Nunca'],certa:1},
-  {texto:'Qual frase está correta?',opcoes:['o menino gosta de ler.','O menino gosta de ler.','o Menino gosta De ler.','O MENINO GOSTA DE LER.'],certa:1},
-  {texto:'"agostino ficou com medo."\nO que está errado?',opcoes:['Falta ponto final','Agostino deveria ter maiúscula','Nada está errado','Falta vírgula'],certa:1},
-  {texto:'Nomes próprios começam com:',opcoes:['Letra minúscula','Letra maiúscula','Qualquer letra','Números'],certa:1},
-  {texto:'Qual nome está correto?',opcoes:['rapunzel','RAPUNZEL','Rapunzel','rApUnZeL'],certa:2},
-  {texto:'Toda frase termina com:',opcoes:['Vírgula','Nada','Ponto final','Dois pontos'],certa:2},
-  {texto:'"o saci pererê mora na floresta"\nQuantos erros de maiúscula tem?',opcoes:['1 erro','2 erros','3 erros','Nenhum'],certa:2},
-  {texto:'Qual frase usa maiúscula certo?',opcoes:['a Julia mora em curitiba.','A Julia mora em Curitiba.','a julia mora em Curitiba.','A julia mora em curitiba.'],certa:1}
-]},
-expressoes:{nome:'💭 O que significa?',emoji:'💭',materia:'port',perguntas:[
-  {texto:'"Ela colocou pressa nos pés."\nO que significa?',opcoes:['Ela prendeu os pés','Ela fugiu apressada','Pé machucado','Calçou um sapato'],certa:1},
-  {texto:'"Agostino ficou encafifado."\nO que significa?',opcoes:['Ficou com fome','Ficou curioso e desconfiado','Ficou com sono','Ficou feliz'],certa:1},
-  {texto:'"Ele se vestiu de heroísmo."\nO que significa?',opcoes:['Colocou fantasia','Criou coragem','Ficou com medo','Comprou roupa'],certa:1},
-  {texto:'"A poltrona estava puída."\nO que significa puída?',opcoes:['Nova e bonita','Gasta, bastante usada','Muito grande','Muito colorida'],certa:1},
-  {texto:'"Personagens horripilantes"\nO que significa?',opcoes:['Engraçados','Bonitos','Assustadores','Pequenos'],certa:2},
-  {texto:'"Correu mais veloz que uma lebre."\nO que significa?',opcoes:['Correu devagar','Correu muito rápido','Parou de correr','Andou normal'],certa:1},
-  {texto:'"Recuar" significa:',opcoes:['Ir para frente','Andar para trás','Pular','Correr rápido'],certa:1},
-  {texto:'"Guardava as palavras como tesouro."\nO que significa?',opcoes:['Falava muito','Valorizava muito as palavras','Escondia dinheiro','Não sabia ler'],certa:1}
-]},
-lendas:{nome:'🧙 Lendas Brasileiras',emoji:'🧙',materia:'port',perguntas:[
-  {texto:'De qual objeto vem os poderes\ndo Saci-Pererê?',opcoes:['Uma capa mágica','Um gorro vermelho','Uma varinha','Um anel'],certa:1},
-  {texto:'O que é o Boitatá?',opcoes:['Um pássaro de fogo','Uma cobra de fogo','Um dragão','Um lobo'],certa:1},
-  {texto:'O que a Cuca faz?',opcoes:['Ajuda as crianças','Leva embora crianças\nmal-educadas','Cozinha para todos','Canta para dormir'],certa:1},
-  {texto:'A Cuca tem cabeça de:',opcoes:['Leão','Cobra','Jacaré','Lobo'],certa:2},
-  {texto:'O Saci-Pererê tem\nquantas pernas?',opcoes:['Duas','Nenhuma','Uma','Três'],certa:2},
-  {texto:'O que o Saci gosta de fazer?',opcoes:['Ajudar as pessoas','Fazer travessuras','Dormir o dia todo','Estudar'],certa:1},
-  {texto:'"Dilúvio" significa:',opcoes:['Seca muito forte','Enchente de chuvas fortes','Vento forte','Terremoto'],certa:1},
-  {texto:'Onde vive o Boitatá?',opcoes:['No mar','Nos campos e matas','Na cidade','No deserto'],certa:1}
-]},
-/* ================================================================
-   BANCO DE PERGUNTAS — MATEMÁTICA
-================================================================ */
-mat_dezenas:{nome:'🔢 Dezenas e Unidades',emoji:'🔢',materia:'mat',perguntas:[
+dezenas:{nome:'🔢 Dezenas e Unidades',emoji:'🔢',perguntas:[
   {texto:'Quantas dezenas tem\no número 35?',opcoes:['5','3','35','2'],certa:1},
   {texto:'Quantas unidades tem\no número 67?',opcoes:['6','60','7','67'],certa:2},
   {texto:'O número 84 tem\nquantas dezenas?',opcoes:['4','84','8','48'],certa:2},
@@ -520,33 +315,33 @@ mat_dezenas:{nome:'🔢 Dezenas e Unidades',emoji:'🔢',materia:'mat',perguntas
   {texto:'Qual é a forma decomposta\nde 35?',opcoes:['3 + 5','35 + 0','30 + 5','20 + 15'],certa:2},
   {texto:'10 unidades formam:',opcoes:['1 centena','10 dezenas','1 dezena','100 unidades'],certa:2},
   {texto:'Qual número tem\n7 dezenas e 0 unidades?',opcoes:['7','17','70','700'],certa:2},
-  {texto:'O número 12 é formado por:',opcoes:['1 dezena e 2 unidades','2 dezenas e 1 unidade','12 dezenas','1 unidade e 2 dezenas'],certa:0},
-  {texto:'Se juntarmos 4 dezenas\ne 14 unidades, formamos:',opcoes:['44','414','54','18'],certa:2},
+  {texto:'O número 12 é formado por:',opcoes:['1 dezena e 2 unidades','2 dezenas e 1 unidade','12 dezenas','12 centenas'],certa:0},
+  {texto:'Se juntarmos 4 dezenas\ne 14 unidades, temos:',opcoes:['44','414','54','18'],certa:2},
   {texto:'3 dezenas e 5 unidades\né o mesmo que:',opcoes:['53','305','35','8'],certa:2}
 ]},
-mat_extenso:{nome:'📝 Por Extenso',emoji:'📝',materia:'mat',perguntas:[
+extenso:{nome:'📝 Por Extenso',emoji:'📝',perguntas:[
   {texto:'Como se escreve 35\npor extenso?',opcoes:['Treze e cinco','Trinta e cinco','Trinta e três','Três e cinco'],certa:1},
   {texto:'"Sessenta e sete"\nvale quanto?',opcoes:['76','607','67','617'],certa:2},
   {texto:'Como se escreve 84\npor extenso?',opcoes:['Oito e quatro','Oitenta e quatro','Quarenta e oito','Oitocentos e quatro'],certa:1},
   {texto:'"Setenta" é o mesmo que:',opcoes:['7','17','700','70'],certa:3},
   {texto:'Como se escreve 12\npor extenso?',opcoes:['Um e dois','Cento e dois','Doze','Vinte e um'],certa:2},
-  {texto:'"Trezentos e oitenta e seis"\nvale quanto?',opcoes:['3086','368','386','308'],certa:2},
+  {texto:'"Trezentos e oitenta\ne seis" vale:',opcoes:['3086','368','386','308'],certa:2},
   {texto:'Como se escreve 204\npor extenso?',opcoes:['Vinte e quatro','Dois mil e quatro','Duzentos e quatro','Duzentos e quarenta'],certa:2},
   {texto:'"Quatrocentos e trinta\ne cinco" vale:',opcoes:['4035','345','4305','435'],certa:3}
 ]},
-mat_adicao:{nome:'➕ Adição',emoji:'➕',materia:'mat',perguntas:[
+adicao:{nome:'➕ Adição',emoji:'➕',perguntas:[
   {texto:'37 + 28 = ?',opcoes:['55','65','56','75'],certa:1},
   {texto:'55 + 25 = ?',opcoes:['70','90','80','85'],certa:2},
   {texto:'34 + 18 = ?',opcoes:['42','52','48','62'],certa:1},
   {texto:'46 + 28 = ?',opcoes:['64','74','68','84'],certa:1},
-  {texto:'35 + 17 = ?',opcoes:['42','52','45','62'],certa:1},
   {texto:'39 + 25 = ?',opcoes:['54','64','74','59'],certa:1},
   {texto:'197 + 102 = ?',opcoes:['209','289','299','399'],certa:2},
   {texto:'281 + 103 = ?',opcoes:['384','374','394','284'],certa:0},
   {texto:'236 + 162 = ?',opcoes:['396','398','388','408'],certa:1},
-  {texto:'74 + 17 = ?',opcoes:['81','91','87','97'],certa:1}
+  {texto:'74 + 17 = ?',opcoes:['81','91','87','97'],certa:1},
+  {texto:'35 + 17 = ?',opcoes:['42','52','45','62'],certa:1}
 ]},
-mat_subtracao:{nome:'➖ Subtração',emoji:'➖',materia:'mat',perguntas:[
+subtracao:{nome:'➖ Subtração',emoji:'➖',perguntas:[
   {texto:'345 - 120 = ?',opcoes:['215','225','235','125'],certa:1},
   {texto:'486 - 321 = ?',opcoes:['175','155','165','265'],certa:2},
   {texto:'337 - 114 = ?',opcoes:['213','233','223','113'],certa:2},
@@ -556,7 +351,7 @@ mat_subtracao:{nome:'➖ Subtração',emoji:'➖',materia:'mat',perguntas:[
   {texto:'52 - 18 = ?',opcoes:['44','24','34','38'],certa:2},
   {texto:'74 - 28 = ?',opcoes:['56','46','36','52'],certa:1}
 ]},
-mat_centenas:{nome:'🏗️ Centenas',emoji:'🏗️',materia:'mat',perguntas:[
+centenas:{nome:'🏗️ Centenas',emoji:'🏗️',perguntas:[
   {texto:'1 centena é igual a\nquantas unidades?',opcoes:['10','1000','100','50'],certa:2},
   {texto:'O número 428 tem\nquantas centenas?',opcoes:['42','2','8','4'],certa:3},
   {texto:'2 centenas + 0 dezenas\n+ 4 unidades = ?',opcoes:['240','24','204','2004'],certa:2},
@@ -565,30 +360,30 @@ mat_centenas:{nome:'🏗️ Centenas',emoji:'🏗️',materia:'mat',perguntas:[
   {texto:'3 centenas e 6 unidades = ?',opcoes:['36','360','306','3006'],certa:2},
   {texto:'O valor do algarismo 4\nem 245 é:',opcoes:['4','400','40','2'],certa:2},
   {texto:'O número 500 equivale\na quantas dezenas?',opcoes:['5','500','50','55'],certa:2},
-  {texto:'O número 175 é formado por:',opcoes:['17 dezenas e 5 unidades','1 centena, 7 dezenas e 5 unidades','175 unidades','Todas as alternativas'],certa:3},
+  {texto:'O número 175 é formado por:',opcoes:['17 dez. e 5 unid.','1 cent., 7 dez. e 5 unid.','175 unidades','Todas as alternativas'],certa:3},
   {texto:'O valor do algarismo 4\nem 412 é:',opcoes:['4','40','400','4000'],certa:2}
 ]},
-mat_sequencias:{nome:'🔄 Sequências',emoji:'🔄',materia:'mat',perguntas:[
-  {texto:'112, 114, 116, 118, ___\nQual é o próximo?',opcoes:['119','122','120','130'],certa:2},
-  {texto:'315, 320, 325, 330, ___\nQual é o próximo?',opcoes:['340','335','331','345'],certa:1},
-  {texto:'218, 215, 212, 209, ___\nQual é o próximo?',opcoes:['207','208','206','205'],certa:2},
-  {texto:'410, 409, 408, 407, ___\nQual é o próximo?',opcoes:['405','406','400','410'],certa:1},
-  {texto:'134, 144, 154, 164, ___\nQual é o próximo?',opcoes:['165','170','174','184'],certa:2},
-  {texto:'248, 250, 252, ___, 256\nQual número falta?',opcoes:['253','254','255','251'],certa:1},
-  {texto:'380, 390, 400, ___, 420\nQual número falta?',opcoes:['405','410','415','401'],certa:1},
-  {texto:'100, 104, 108, ___, 116\nQual número falta?',opcoes:['110','114','112','109'],certa:2}
+sequencias:{nome:'🔄 Sequências',emoji:'🔄',perguntas:[
+  {texto:'112, 114, 116, 118, ___',opcoes:['119','122','120','130'],certa:2},
+  {texto:'315, 320, 325, 330, ___',opcoes:['340','335','331','345'],certa:1},
+  {texto:'218, 215, 212, 209, ___',opcoes:['207','208','206','205'],certa:2},
+  {texto:'410, 409, 408, 407, ___',opcoes:['405','406','400','410'],certa:1},
+  {texto:'134, 144, 154, 164, ___',opcoes:['165','170','174','184'],certa:2},
+  {texto:'248, 250, 252, ___, 256',opcoes:['253','254','255','251'],certa:1},
+  {texto:'380, 390, 400, ___, 420',opcoes:['405','410','415','401'],certa:1},
+  {texto:'100, 104, 108, ___, 116',opcoes:['110','114','112','109'],certa:2}
 ]},
-mat_enigmas:{nome:'🧩 Enigmas Numéricos',emoji:'🧩',materia:'mat',perguntas:[
+enigmas:{nome:'🧩 Enigmas',emoji:'🧩',perguntas:[
   {texto:'4 centenas, 3 dezenas\ne 5 unidades = ?',opcoes:['345','453','435','534'],certa:2},
   {texto:'3 centenas e 6 unidades = ?',opcoes:['36','360','306','603'],certa:2},
-  {texto:'Este número tem 2 dezenas\na menos que 167.\nQual é?',opcoes:['165','157','147','187'],certa:2},
+  {texto:'Este número tem 2 dezenas\na menos que 167:',opcoes:['165','157','147','187'],certa:2},
   {texto:'2 centenas, 5 dezenas\ne 18 unidades = ?',opcoes:['258','2518','268','278'],certa:2},
-  {texto:'1 centena a mais que 234 = ?',opcoes:['235','244','334','134'],certa:2},
+  {texto:'1 centena a mais que 234:',opcoes:['235','244','334','134'],certa:2},
   {texto:'10 dezenas e 9 unidades = ?',opcoes:['19','190','109','1009'],certa:2},
   {texto:'9 centenas, 4 dezenas\ne 3 unidades = ?',opcoes:['493','934','349','943'],certa:3},
-  {texto:'Este número é formado por\ndez dezenas e nove unidades:',opcoes:['1009','19','109','190'],certa:2}
+  {texto:'Este número tem\n1 centena e 53 unidades:',opcoes:['1053','53','153','163'],certa:2}
 ]},
-mat_antecessor:{nome:'⏮️ Antecessor e Sucessor',emoji:'⏮️',materia:'mat',perguntas:[
+antecessor:{nome:'⏮️ Antecessor e Sucessor',emoji:'⏮️',perguntas:[
   {texto:'Qual é o ANTECESSOR\nde 295?',opcoes:['296','294','290','293'],certa:1},
   {texto:'Qual é o SUCESSOR\nde 206?',opcoes:['205','210','207','216'],certa:2},
   {texto:'Qual é o ANTECESSOR\nde 260?',opcoes:['261','250','259','270'],certa:2},
@@ -600,69 +395,51 @@ mat_antecessor:{nome:'⏮️ Antecessor e Sucessor',emoji:'⏮️',materia:'mat'
 ]}
 };
 
-/* PALAVRAS PARA ESCRITA — PORTUGUÊS */
-var PALAVRAS_PORT=[
-  {palavra:'Campo',dica:'M antes de P!'},{palavra:'Bomba',dica:'M antes de B!'},
-  {palavra:'Sombra',dica:'M antes de B!'},{palavra:'Lâmpada',dica:'M antes de P!'},
-  {palavra:'Balão',dica:'Til no Ã!'},{palavra:'Coração',dica:'Til no Ã!'},
-  {palavra:'Sente',dica:'N antes de T!'},{palavra:'Manta',dica:'N antes de T!'},
-  {palavra:'Rapunzel',dica:'Nome próprio — maiúscula!'},
-  {palavra:'Agostino',dica:'Nome próprio — maiúscula!'},
-  {palavra:'Tampa',dica:'M antes de P!'},{palavra:'Mamão',dica:'Til no Ã!'},
-  {palavra:'Longo',dica:'N antes de G!'},{palavra:'Julia',dica:'Seu nome! Maiúscula!'}
+/* CONTAS ARMADAS (CDU) */
+var CONTAS=[
+  {tipo:'+',a:37,b:28,r:65},{tipo:'+',a:55,b:25,r:80},
+  {tipo:'+',a:34,b:18,r:52},{tipo:'+',a:46,b:28,r:74},
+  {tipo:'+',a:39,b:25,r:64},{tipo:'+',a:74,b:17,r:91},
+  {tipo:'+',a:281,b:103,r:384},{tipo:'+',a:236,b:162,r:398},
+  {tipo:'+',a:197,b:102,r:299},{tipo:'+',a:320,b:159,r:479},
+  {tipo:'-',a:80,b:25,r:55},{tipo:'-',a:74,b:28,r:46},
+  {tipo:'-',a:345,b:120,r:225},{tipo:'-',a:337,b:114,r:223},
+  {tipo:'-',a:486,b:321,r:165},{tipo:'-',a:467,b:142,r:325}
 ];
 
-/* PALAVRAS PARA ESCRITA — MATEMÁTICA */
-var PALAVRAS_MAT=[
-  {palavra:'Trinta',dica:'30 — três dezenas!'},{palavra:'Doze',dica:'12 — uma dezena e duas unidades!'},
-  {palavra:'Setenta',dica:'70 — sete dezenas!'},{palavra:'Oitenta',dica:'80 — oito dezenas!'},
+/* PALAVRAS ESCRITA */
+var PALAVRAS=[
+  {palavra:'Trinta',dica:'30 — três dezenas!'},
+  {palavra:'Doze',dica:'12 — uma dezena e duas unidades!'},
+  {palavra:'Setenta',dica:'70 — sete dezenas!'},
+  {palavra:'Oitenta',dica:'80 — oito dezenas!'},
   {palavra:'Centena',dica:'1 centena = 100 unidades!'},
   {palavra:'Dezena',dica:'1 dezena = 10 unidades!'},
-  {palavra:'Cinco',dica:'5 unidades!'},{palavra:'Quatro',dica:'4 unidades!'},
+  {palavra:'Cinco',dica:'5 unidades!'},
+  {palavra:'Quatro',dica:'4 unidades!'},
   {palavra:'Duzentos',dica:'200 — duas centenas!'},
-  {palavra:'Sete',dica:'7 unidades!'},{palavra:'Nove',dica:'9 unidades!'},
+  {palavra:'Sete',dica:'7 unidades!'},
+  {palavra:'Nove',dica:'9 unidades!'},
   {palavra:'Quarenta',dica:'40 — quatro dezenas!'}
 ];
 
-/* ================================================================
-   IMAGENS DAS LETRAS CURSIVAS (Colégio Bom Jesus)
-   ⚠️ NOTA: Cole aqui os dados base64 do arquivo original index.html
-   O app funciona sem eles, mas as letras-modelo não aparecem.
-   Formato: 'A':'data:image/jpeg;base64,...', 'B':'...', etc.
-================================================================ */
-var LETRA_IMG = {};
-
 /* ESTADO */
-var estado={tema:'',materia:'port',perguntas:[],indice:0,acertos:0,respondeu:false};
-var escIdx=0,escPalavras=[],escMateria='port';
+var estado={tema:'',perguntas:[],indice:0,acertos:0,respondeu:false};
+var escIdx=0,escPalavras=[];
+var cduIdx=0,cduContas=[],cduAcertos=0,cduVerificado=false;
 
-/* UTILITÁRIOS */
-function embaralhar(a){var arr=a.slice();for(var i=arr.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=arr[i];arr[i]=arr[j];arr[j]=t;}return arr;}
-
-function mostrarTela(id){
-  var t=document.querySelectorAll('.tela');
-  for(var i=0;i<t.length;i++) t[i].classList.remove('ativa');
-  document.getElementById(id).classList.add('ativa');
-  window.scrollTo(0,0);
-}
-
-function voltarMenu(){
-  if(estado.materia==='mat') mostrarTela('tela-menu-mat');
-  else mostrarTela('tela-menu');
-}
-
+/* ================================================================
+   FUNÇÕES UTILITÁRIAS
+================================================================ */
+function embaralhar(a){var r=a.slice();for(var i=r.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=r[i];r[i]=r[j];r[j]=t;}return r;}
+function mostrarTela(id){var t=document.querySelectorAll('.tela');for(var i=0;i<t.length;i++)t[i].classList.remove('ativa');document.getElementById(id).classList.add('ativa');window.scrollTo(0,0);}
 function calcE(a,t){var p=a/t,n=p>=.9?5:p>=.7?4:p>=.5?3:p>=.3?2:1,s='';for(var i=0;i<5;i++)s+=i<n?'⭐':'☆';return s;}
-
 function confete(){var e=['🎉','⭐','🌟','✨','🎊','🏅','🎈'];for(var i=0;i<12;i++){(function(d){setTimeout(function(){var el=document.createElement('span');el.className='conf';el.textContent=e[Math.floor(Math.random()*e.length)];el.style.left=Math.random()*95+'vw';el.style.animationDuration=(.8+Math.random()*.9)+'s';document.body.appendChild(el);setTimeout(function(){if(el.parentNode)el.parentNode.removeChild(el);},1800);},d);})(i*80);}}
 
-/* QUIZ */
-function iniciarTema(tema){
-  estado.tema=tema;
-  estado.materia=BANCO[tema].materia||'port';
-  estado.perguntas=embaralhar(BANCO[tema].perguntas).slice(0,6);
-  estado.indice=0;estado.acertos=0;
-  mostrarTela('tela-quiz');carregarPergunta();
-}
+/* ================================================================
+   QUIZ
+================================================================ */
+function iniciarTema(tema){estado.tema=tema;estado.perguntas=embaralhar(BANCO[tema].perguntas).slice(0,6);estado.indice=0;estado.acertos=0;mostrarTela('tela-quiz');carregarPergunta();}
 
 function carregarPergunta(){
   estado.respondeu=false;
@@ -692,121 +469,173 @@ function responder(escolhido){
   for(var i=0;i<btns.length;i++){btns[i].setAttribute('onclick','');var bi=parseInt(btns[i].getAttribute('data-idx'));if(bi===certa)btns[i].classList.add('certa');else if(bi===escolhido&&!acertou)btns[i].classList.add('errada');}
   var fb=document.getElementById('fb');
   if(acertou){estado.acertos++;var m=['🎉 Muito bem!','⭐ Incrível!','🌟 Parabéns!','🏅 Certíssimo!','✨ Arrasou!'];fb.textContent=m[Math.floor(Math.random()*m.length)];fb.className='fb c';confete();}
-  else{fb.textContent='😊 Quase! A resposta certa está em verde!';fb.className='fb e';}
+  else{fb.textContent='😊 Quase! A certa está em verde!';fb.className='fb e';}
   fb.style.display='block';
   document.getElementById('hdr-e').textContent=calcE(estado.acertos,estado.perguntas.length);
   var btnP=document.getElementById('btn-px');btnP.style.display='block';
   btnP.textContent=(estado.indice===estado.perguntas.length-1)?'Ver resultado 🏆':'Próxima ➡️';
 }
 
-function avancar(){estado.indice++;if(estado.indice>=estado.perguntas.length)mostrarResultado();else carregarPergunta();}
+function avancar(){estado.indice++;if(estado.indice>=estado.perguntas.length)mostrarFinal('quiz');else carregarPergunta();}
 
-function mostrarResultado(){
-  var total=estado.perguntas.length,ac=estado.acertos,pct=ac/total;
+function mostrarFinal(tipo){
+  var ac=tipo==='cdu'?cduAcertos:estado.acertos;
+  var total=tipo==='cdu'?cduContas.length:estado.perguntas.length;
+  var pct=ac/total;
   document.getElementById('ef').textContent=calcE(ac,total);
   document.getElementById('af').textContent=ac+' / '+total+' acertos!';
   var ms=['Continue praticando! 💪','Bom trabalho! 😊','Muito bem! 🌟','Excelente! 🎉','PERFEITO! 🧠✨'];
   document.getElementById('mf').textContent=ms[Math.min(Math.floor(pct*5),4)];
-  document.getElementById('bar').style.width='100%';confete();mostrarTela('tela-final');
+  document.getElementById('bar').style.width='100%';
+  var btnR=document.getElementById('btn-replay');
+  if(tipo==='cdu'){btnR.setAttribute('onclick','window.abrirCDU()');}
+  else{btnR.setAttribute('onclick','window.iniciarTema("'+estado.tema+'")');}
+  confete();mostrarTela('tela-final');
 }
 
-/* ESCRITA — CANVAS */
+function replay(){/* handled by dynamic onclick */}
+
+/* ================================================================
+   CONTA ARMADA (CDU)
+================================================================ */
+function abrirCDU(){
+  cduContas=embaralhar(CONTAS).slice(0,8);cduIdx=0;cduAcertos=0;
+  mostrarTela('tela-cdu');montarCDU();
+}
+
+function montarCDU(){
+  cduVerificado=false;
+  var c=cduContas[cduIdx];
+  var cols=String(Math.max(c.a,c.b,c.r)).length;
+  /* Texto do problema */
+  var probTxt=c.a+' '+c.tipo+' '+c.b+' = ?';
+  document.getElementById('cdu-problema').textContent=probTxt;
+  document.getElementById('cdu-prog').textContent='Conta '+(cduIdx+1)+' de '+cduContas.length;
+  /* Construir grid */
+  var wrap=document.getElementById('cdu-grid');
+  wrap.innerHTML='';
+  var tbl=document.createElement('div');tbl.className='cdu-wrap';
+  /* Header */
+  var hdr=document.createElement('div');hdr.className='cdu-header';
+  var labels=cols===3?['C','D','U']:['D','U'];
+  for(var i=0;i<labels.length;i++){var sp=document.createElement('span');sp.textContent=labels[i];hdr.appendChild(sp);}
+  tbl.appendChild(hdr);
+  /* Linha A */
+  var rowA=document.createElement('div');rowA.className='cdu-row';
+  var digA=padNum(c.a,cols);
+  for(var i=0;i<cols;i++){var ce=document.createElement('span');ce.className='cdu-cell';ce.textContent=digA[i];rowA.appendChild(ce);}
+  tbl.appendChild(rowA);
+  /* Linha B (com sinal) */
+  var rowB=document.createElement('div');rowB.className='cdu-row';
+  var sign=document.createElement('span');sign.className='cdu-sign';sign.textContent=c.tipo;rowB.appendChild(sign);
+  var digB=padNum(c.b,cols);
+  for(var i=0;i<cols;i++){var ce=document.createElement('span');ce.className='cdu-cell';ce.textContent=digB[i];rowB.appendChild(ce);}
+  tbl.appendChild(rowB);
+  /* Linha divisória */
+  var line=document.createElement('div');line.className='cdu-line';tbl.appendChild(line);
+  /* Linha resultado (inputs) */
+  var rowR=document.createElement('div');rowR.className='cdu-row';
+  var spacer=document.createElement('span');spacer.className='cdu-sign';spacer.textContent='=';rowR.appendChild(spacer);
+  for(var i=0;i<cols;i++){
+    var inp=document.createElement('input');inp.className='cdu-input';inp.type='text';
+    inp.setAttribute('inputmode','numeric');inp.setAttribute('maxlength','1');
+    inp.setAttribute('data-pos',String(i));
+    inp.setAttribute('onclick','this.select()');
+    /* Auto-advance */
+    (function(pos){
+      inp.addEventListener('input',function(){
+        if(this.value.length===1){
+          var next=rowR.querySelector('[data-pos="'+(pos+1)+'"]');
+          if(next)next.focus();
+        }
+      });
+    })(i);
+    rowR.appendChild(inp);
+  }
+  tbl.appendChild(rowR);
+  wrap.appendChild(tbl);
+  /* Reset feedback */
+  var fb=document.getElementById('cdu-fb');fb.style.display='none';fb.className='fb';
+  document.getElementById('btn-cdu-ver').style.display='block';
+  document.getElementById('btn-cdu-px').style.display='none';
+  /* Focus first input */
+  setTimeout(function(){var first=tbl.querySelector('.cdu-input');if(first)first.focus();},300);
+}
+
+function padNum(n,cols){
+  var s=String(n);
+  while(s.length<cols)s='0'+s;
+  return s.split('');
+}
+
+function verificarCDU(){
+  if(cduVerificado)return;cduVerificado=true;
+  var c=cduContas[cduIdx];
+  var cols=String(Math.max(c.a,c.b,c.r)).length;
+  var digR=padNum(c.r,cols);
+  var inputs=document.querySelectorAll('.cdu-input');
+  var acertou=true;
+  for(var i=0;i<inputs.length;i++){
+    var v=inputs[i].value.trim();
+    if(v===digR[i]){inputs[i].classList.add('ok');}
+    else{inputs[i].classList.add('erro');inputs[i].value=digR[i];acertou=false;}
+    inputs[i].setAttribute('readonly','true');
+  }
+  var fb=document.getElementById('cdu-fb');
+  if(acertou){cduAcertos++;fb.textContent='🎉 Certíssimo!';fb.className='fb c';confete();}
+  else{fb.textContent='😊 A resposta certa é '+c.r;fb.className='fb e';}
+  fb.style.display='block';
+  document.getElementById('btn-cdu-ver').style.display='none';
+  var btnP=document.getElementById('btn-cdu-px');btnP.style.display='block';
+  btnP.textContent=(cduIdx===cduContas.length-1)?'Ver resultado 🏆':'Próxima ➡️';
+}
+
+function proxCDU(){cduIdx++;if(cduIdx>=cduContas.length)mostrarFinal('cdu');else montarCDU();}
+
+/* ================================================================
+   ESCRITA (Canvas)
+================================================================ */
 var canvas,ctx,desenhando=false;
 function initCanvas(){
   canvas=document.getElementById('canvas');var wrap=canvas.parentElement;
-  var rect=wrap.getBoundingClientRect();canvas.width=rect.width-6;canvas.height=400;
+  var rect=wrap.getBoundingClientRect();canvas.width=rect.width-6;canvas.height=350;
   ctx=canvas.getContext('2d');ctx.strokeStyle='#2C3E50';ctx.lineWidth=3;ctx.lineCap='round';ctx.lineJoin='round';
-  canvas.addEventListener('pointerdown',function(e){e.preventDefault();desenhando=true;var pos=getPos(e);ctx.beginPath();ctx.moveTo(pos.x,pos.y);});
-  canvas.addEventListener('pointermove',function(e){e.preventDefault();if(!desenhando)return;var pos=getPos(e);ctx.lineTo(pos.x,pos.y);ctx.stroke();});
+  canvas.addEventListener('pointerdown',function(e){e.preventDefault();desenhando=true;var p=getP(e);ctx.beginPath();ctx.moveTo(p.x,p.y);});
+  canvas.addEventListener('pointermove',function(e){e.preventDefault();if(!desenhando)return;var p=getP(e);ctx.lineTo(p.x,p.y);ctx.stroke();});
   canvas.addEventListener('pointerup',function(e){e.preventDefault();desenhando=false;});
   canvas.addEventListener('pointerleave',function(){desenhando=false;});
   canvas.addEventListener('pointercancel',function(){desenhando=false;});
-  canvas.addEventListener('touchstart',function(e){if(e.touches.length===1){e.preventDefault();desenhando=true;var pos=getTouchPos(e);ctx.beginPath();ctx.moveTo(pos.x,pos.y);}},{passive:false});
-  canvas.addEventListener('touchmove',function(e){if(!desenhando)return;e.preventDefault();var pos=getTouchPos(e);ctx.lineTo(pos.x,pos.y);ctx.stroke();},{passive:false});
+  canvas.addEventListener('touchstart',function(e){if(e.touches.length===1){e.preventDefault();desenhando=true;var p=getT(e);ctx.beginPath();ctx.moveTo(p.x,p.y);}},{passive:false});
+  canvas.addEventListener('touchmove',function(e){if(!desenhando)return;e.preventDefault();var p=getT(e);ctx.lineTo(p.x,p.y);ctx.stroke();},{passive:false});
   canvas.addEventListener('touchend',function(){desenhando=false;});
 }
-function getPos(e){var rect=canvas.getBoundingClientRect();return{x:e.clientX-rect.left,y:e.clientY-rect.top};}
-function getTouchPos(e){var rect=canvas.getBoundingClientRect();var t=e.touches[0];return{x:t.clientX-rect.left,y:t.clientY-rect.top};}
-
+function getP(e){var r=canvas.getBoundingClientRect();return{x:e.clientX-r.left,y:e.clientY-r.top};}
+function getT(e){var r=canvas.getBoundingClientRect();var t=e.touches[0];return{x:t.clientX-r.left,y:t.clientY-r.top};}
 function desenharLinhas(){
   var h=canvas.height,w=canvas.width;ctx.save();
   ctx.strokeStyle='#D4C9B8';ctx.lineWidth=1;
-  var linhas=[70,130];
-  for(var i=0;i<linhas.length;i++){ctx.beginPath();ctx.moveTo(0,linhas[i]);ctx.lineTo(w,linhas[i]);ctx.stroke();}
-  ctx.strokeStyle='#9B59B6';ctx.lineWidth=2;ctx.setLineDash([8,6]);
-  ctx.beginPath();ctx.moveTo(0,175);ctx.lineTo(w,175);ctx.stroke();ctx.setLineDash([]);
-  ctx.fillStyle='#C0A0D0';ctx.font='bold 14px Nunito,sans-serif';
-  ctx.fillText('Escreva aqui:',50,22);
-  ctx.fillStyle='#A0C0A0';ctx.font='bold 14px Nunito,sans-serif';
-  ctx.fillText('Escreva de novo:',50,195);
-  ctx.strokeStyle='#D4C9B8';ctx.lineWidth=1;
-  var linhasB=[240,300,360];
-  for(var i=0;i<linhasB.length;i++){ctx.beginPath();ctx.moveTo(0,linhasB[i]);ctx.lineTo(w,linhasB[i]);ctx.stroke();}
+  [80,140,200,260,310].forEach(function(y){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();});
   ctx.strokeStyle='#F5C6C6';ctx.lineWidth=1;
   ctx.beginPath();ctx.moveTo(45,0);ctx.lineTo(45,h);ctx.stroke();
   ctx.restore();ctx.strokeStyle='#2C3E50';ctx.lineWidth=3;
 }
-
 function limparCanvas(){ctx.clearRect(0,0,canvas.width,canvas.height);desenharLinhas();}
-
-function abrirEscrita(tipo){
-  escMateria=tipo||'port';
-  estado.materia=tipo==='mat'?'mat':'port';
-  var lista=tipo==='mat'?PALAVRAS_MAT:PALAVRAS_PORT;
-  escPalavras=embaralhar(lista).slice(0,10);escIdx=0;
-  var tit=document.getElementById('esc-titulo');
-  tit.textContent=tipo==='mat'?'✍️ Escrever Números':'✍️ Praticar Escrita';
-  mostrarTela('tela-escrita');
-  setTimeout(function(){initCanvas();mostrarPalavra();},400);
-}
-
-function mostrarPalavra(){
+function abrirEscrita(){escPalavras=embaralhar(PALAVRAS).slice(0,10);escIdx=0;mostrarTela('tela-escrita');setTimeout(function(){initCanvas();mostrarPalavraEsc();},400);}
+function mostrarPalavraEsc(){
   var p=escPalavras[escIdx];
   document.getElementById('esc-palavra').textContent=p.palavra;
   document.getElementById('esc-dica2').textContent='💡 '+p.dica;
   document.getElementById('esc-prog').textContent='Palavra '+(escIdx+1)+' de '+escPalavras.length;
   ctx.clearRect(0,0,canvas.width,canvas.height);desenharLinhas();
-  /* Mostrar imagens das letras se disponíveis */
-  var container=document.getElementById('letras-modelo');
-  container.innerHTML='';
-  var hasAnyImg=false;
-  var letrasUsadas={};
-  for(var i=0;i<p.palavra.length;i++){
-    var ch=p.palavra[i].toUpperCase();
-    if(ch>='A'&&ch<='Z'&&!letrasUsadas[ch]){
-      letrasUsadas[ch]=true;
-      if(LETRA_IMG[ch]){hasAnyImg=true;}
-    }
-  }
-  if(hasAnyImg){
-    container.innerHTML='<span style="font-size:.85rem;font-weight:800;color:var(--roxo);width:100%;text-align:center">Modelo cursivo:</span>';
-    letrasUsadas={};
-    for(var i=0;i<p.palavra.length;i++){
-      var ch=p.palavra[i].toUpperCase();
-      if(ch>='A'&&ch<='Z'&&!letrasUsadas[ch]){
-        letrasUsadas[ch]=true;
-        if(LETRA_IMG[ch]){
-          var img=document.createElement('img');
-          img.style.cssText='border-radius:8px;border:2px solid #D7BDE2;background:#fff;height:60px;box-shadow:0 2px 6px rgba(0,0,0,.1)';
-          img.src='data:image/jpeg;base64,'+LETRA_IMG[ch];img.alt=ch;
-          container.appendChild(img);
-        }
-      }
-    }
-  } else {
-    container.style.display='none';
-  }
-  var btnP=document.getElementById('btn-esc-px');
-  btnP.textContent=(escIdx===escPalavras.length-1)?'Finalizar ✅':'Próxima ✏️';
+  document.getElementById('btn-esc-px').textContent=(escIdx===escPalavras.length-1)?'Finalizar ✅':'Próxima ✏️';
 }
+function proxPalavra(){escIdx++;if(escIdx>=escPalavras.length){confete();escIdx=0;mostrarTela('tela-menu');}else mostrarPalavraEsc();}
 
-function proxPalavra(){escIdx++;if(escIdx>=escPalavras.length){confete();escIdx=0;voltarMenu();}else{mostrarPalavra();}}
-
-/* EXPOR NO WINDOW — obrigatório para onclick inline no iOS Safari */
+/* EXPOR TUDO NO WINDOW */
 window.iniciarTema=iniciarTema;window.responder=responder;window.avancar=avancar;
-window.mostrarTela=mostrarTela;window.voltarMenu=voltarMenu;
-window.abrirEscrita=abrirEscrita;
-window.limparCanvas=limparCanvas;window.proxPalavra=proxPalavra;
+window.mostrarTela=mostrarTela;window.abrirCDU=abrirCDU;window.verificarCDU=verificarCDU;
+window.proxCDU=proxCDU;window.abrirEscrita=abrirEscrita;window.limparCanvas=limparCanvas;
+window.proxPalavra=proxPalavra;window.confete=confete;window.replay=replay;
 </script>
 </body>
 </html>
